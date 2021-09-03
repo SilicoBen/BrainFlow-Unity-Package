@@ -1,0 +1,45 @@
+[2021-09-03 11:12:12.471] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:12:12.497] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:12:12.537] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-03 11:12:12.537] [board_logger] [trace] Board object created -1
+[2021-09-03 11:12:12.537] [board_logger] [trace] prepare session
+[2021-09-03 11:12:12.550] [board_logger] [trace] File Streamer, file: Test Session .csv, mods: w
+[2021-09-03 11:16:07.139] [board_logger] [trace] stop stream
+[2021-09-03 11:16:07.157] [board_logger] [trace] release session
+[2021-09-03 11:16:07.157] [board_logger] [trace] stop stream
+[2021-09-03 11:16:46.832] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:16:46.859] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:16:46.897] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-03 11:16:46.897] [board_logger] [trace] Board object created -1
+[2021-09-03 11:16:46.897] [board_logger] [trace] prepare session
+[2021-09-03 11:16:46.910] [board_logger] [trace] File Streamer, file: Test Session .csv, mods: w
+[2021-09-03 11:20:44.639] [board_logger] [trace] stop stream
+[2021-09-03 11:20:44.658] [board_logger] [trace] release session
+[2021-09-03 11:20:44.658] [board_logger] [trace] stop stream
+[2021-09-03 11:22:31.204] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:22:31.230] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:22:31.268] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-03 11:22:31.269] [board_logger] [trace] Board object created -1
+[2021-09-03 11:22:31.269] [board_logger] [trace] prepare session
+[2021-09-03 11:22:31.281] [board_logger] [trace] File Streamer, file: Test Session .csv, mods: w
+[2021-09-03 11:24:13.990] [board_logger] [trace] stop stream
+[2021-09-03 11:24:14.006] [board_logger] [trace] release session
+[2021-09-03 11:24:14.006] [board_logger] [trace] stop stream
+[2021-09-03 11:24:34.013] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:24:34.039] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:24:34.078] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-03 11:24:34.078] [board_logger] [trace] Board object created -1
+[2021-09-03 11:24:34.078] [board_logger] [trace] prepare session
+[2021-09-03 11:24:34.092] [board_logger] [trace] File Streamer, file: Test Session .csv, mods: w
+[2021-09-03 11:25:15.802] [board_logger] [trace] stop stream
+[2021-09-03 11:25:15.820] [board_logger] [trace] release session
+[2021-09-03 11:25:15.820] [board_logger] [trace] stop stream
+[2021-09-03 11:25:54.708] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:25:54.735] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:25:54.775] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-03 11:25:54.775] [board_logger] [trace] Board object created -1
+[2021-09-03 11:25:54.775] [board_logger] [trace] prepare session
+[2021-09-03 11:25:54.788] [board_logger] [trace] File Streamer, file: Test Session .csv, mods: w
+[2021-09-03 11:26:15.763] [board_logger] [trace] stop stream
+[2021-09-03 11:26:15.779] [board_logger] [trace] release session
+[2021-09-03 11:26:15.779] [board_logger] [trace] stop stream

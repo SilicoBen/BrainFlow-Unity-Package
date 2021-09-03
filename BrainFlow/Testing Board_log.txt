@@ -1,0 +1,9 @@
+[2021-09-03 11:36:58.532] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:36:58.567] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-03 11:36:58.613] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-03 11:36:58.613] [board_logger] [trace] Board object created -1
+[2021-09-03 11:36:58.613] [board_logger] [trace] prepare session
+[2021-09-03 11:36:58.630] [board_logger] [trace] File Streamer, file: Testing Board .csv, mods: w
+[2021-09-03 11:37:14.115] [board_logger] [trace] stop stream
+[2021-09-03 11:37:14.135] [board_logger] [trace] release session
+[2021-09-03 11:37:14.135] [board_logger] [trace] stop stream
