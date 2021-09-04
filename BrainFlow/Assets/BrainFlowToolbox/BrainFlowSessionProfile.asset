@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e903a6e00cc422fab7c7f6e02b2f370, type: 3}
+  m_Name: BrainFlowSessionProfile
+  m_EditorClassIdentifier: 
+  sessionName: BrainFlowSessionProfile
+  description: Session Description
+  board: -1
+  boardDataFileName: Testing Synthetic Board Connection
+  bufferSize: 450000
+  serialPortNumber: 0
+  deviceSerialNumber: 
+  playbackFilePath: 
+  ipAddress: 
+  ipPort: 
+  macAddress: 
+  deviceDiscoveryTimeout: 0
+  createDataDashboard: 1
+  samplingRate: 250
+  numberOfDataPoints: 0
+  dataStreamingGameObject: {fileID: 0}
+  boardId: -1
+  brainFlowDashboard: {fileID: 0}
+  brainFlowSessionProfile: {fileID: 0}
+  brainFlowSessionDataStreamer: {fileID: 0}

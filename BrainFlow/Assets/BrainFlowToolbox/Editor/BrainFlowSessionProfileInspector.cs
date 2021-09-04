@@ -63,6 +63,10 @@ namespace BrainFlowToolbox.Editor
             EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
             GUILayout.Space(10);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("board"));
+            
+            
+            // Because each board requires different parameters to create the BoardShim we only expose
+            // the required parameters in the GUI to make it easier to know which ones are required.
             switch (sessionProfile.board)
             {
                 case BoardIds.PLAYBACK_FILE_BOARD:
