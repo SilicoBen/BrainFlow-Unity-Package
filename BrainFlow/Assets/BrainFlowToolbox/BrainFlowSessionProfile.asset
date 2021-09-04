@@ -30,5 +30,5 @@ MonoBehaviour:
   dataStreamingGameObject: {fileID: 0}
   boardId: -1
   brainFlowDashboard: {fileID: 0}
-  brainFlowSessionProfile: {fileID: 0}
+  brainFlowDataDashboard: {fileID: 0}
   brainFlowSessionDataStreamer: {fileID: 0}

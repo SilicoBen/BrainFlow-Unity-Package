@@ -1,10 +1,8 @@
-﻿using System;
-using BrainFlowToolbox.ScriptableObjects;
-using BrainFlowToolbox.Utilities;
+﻿using BrainFlowToolbox.Runtime.ScriptableObjects;
 using UnityEditor;
 using UnityEngine;
 
-namespace BrainFlowToolbox.Runtime
+namespace BrainFlowToolbox.Runtime.Managers
 {
     public class BrainFlowManager : MonoBehaviour
     {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using brainflow;
-using BrainFlowToolbox.Runtime;
-using BrainFlowToolbox.Utilities;
+using BrainFlowToolbox.Runtime.DataVisualization;
+using BrainFlowToolbox.Runtime.Managers;
 using UnityEngine;
 
-namespace BrainFlowToolbox.ScriptableObjects
+namespace BrainFlowToolbox.Runtime.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "BrainFlowSessionProfile", menuName = "BrainFlow/BrainFlowSessionProfile", order = 0)]
     public class BrainFlowSessionProfile : ScriptableObject
@@ -39,7 +39,7 @@ namespace BrainFlowToolbox.ScriptableObjects
         public BrainFlowInputParams brainFlowInputParams;
         public int boardId;
         public GameObject brainFlowDashboard;
-        public BrainFlowDataDashboard brainFlowSessionProfile;
+        public BrainFlowDataDashboard brainFlowDataDashboard;
         public BrainFlowSessionManager brainFlowSessionDataStreamer;
         public Dictionary<string, int[]> ChannelDictionary;
 

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using brainflow;
-using BrainFlowToolbox.Runtime;
-using BrainFlowToolbox.ScriptableObjects;
-using UnityEditor;
+using BrainFlowToolbox.Runtime.DataVisualization;
+using BrainFlowToolbox.Runtime.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace BrainFlowToolbox.Utilities
+namespace BrainFlowToolbox.Runtime.Managers
 {
     public class BrainFlowSessionManager : MonoBehaviour
     {

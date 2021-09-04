@@ -1,6 +1,6 @@
 ﻿using BrainFlowToolbox.Runtime;
-using BrainFlowToolbox.ScriptableObjects;
-using BrainFlowToolbox.Utilities;
+using BrainFlowToolbox.Runtime.Managers;
+using BrainFlowToolbox.Runtime.ScriptableObjects;
 using UnityEditor;
 using UnityEngine;
 

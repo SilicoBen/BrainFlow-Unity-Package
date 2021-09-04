@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using brainflow;
-using BrainFlowToolbox.ScriptableObjects;
+using System.Security.Cryptography.X509Certificates;
+using BrainFlowToolbox.Runtime.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BrainFlowToolbox.Runtime
+namespace BrainFlowToolbox.Runtime.DataVisualization
 {
     public class BrainFlowDataDashboard : MonoBehaviour
     {
@@ -18,14 +18,16 @@ namespace BrainFlowToolbox.Runtime
         private GridLayoutGroup gridLayoutGroup;
         private readonly TMP_DefaultControls.Resources uiResources = new TMP_DefaultControls.Resources();
         private List<GameObject> boardChannelContainers;
+        public GameObject graphContainer;
         
         public void Initialize(BrainFlowSessionProfile sessionProfile)
         {
             brainFlowSessionProfile = sessionProfile;
-            brainFlowSessionProfile.brainFlowSessionProfile = this;
+            brainFlowSessionProfile.brainFlowDataDashboard = this;
             streaming = true;
             SetupDataCanvas();
-            AddDataContainers();
+
+            CreateDataStreamers();
         }
 
         private void SetupDataCanvas()
@@ -42,8 +44,9 @@ namespace BrainFlowToolbox.Runtime
             dataCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             dataCanvas.worldCamera = Camera.main;
         }
+        
 
-        private void AddDataContainers()
+        private void CreateDataStreamers()
         {
 
             foreach (var c in brainFlowSessionProfile.ChannelDictionary)
@@ -54,13 +57,15 @@ namespace BrainFlowToolbox.Runtime
                 newChannelContainer.transform.SetParent(transform);
                 var gridLayout = newChannelContainer.AddComponent<GridLayoutGroup>();
                 gridLayout.cellSize = new Vector2(500,25);
+                var id = 0;
                 foreach (var i in c.Value)
                 {
                     var newGO = TMP_DefaultControls.CreateText(uiResources);
                     newGO.transform.SetParent(newChannelContainer.transform);
 
-                    var objectComponent = newGO.AddComponent<BrainFlowDisplayTextData>();
-                    objectComponent.Initialize(brainFlowSessionProfile, c.Key, i);
+                    var objectComponent = newGO.AddComponent<BrainFlowSingleChannelDataStreamer>();
+                    objectComponent.Initialize(brainFlowSessionProfile, c.Key, i, id);
+                    id++;
                 }
             }
             

@@ -6,7 +6,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
 {
     public class BarController : MonoBehaviour
     {
-        public GraphController graphController;
+        public BrainFlowSingleChannelDataVisualizer brainFlowSingleChannelDataVisualizer;
         public RectTransform graphRect;
         public int barId;
         private float yPosition;
@@ -17,10 +17,10 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
         private RectTransform labelRect;
         private Text labelText;
         
-        public void CreateBar(GraphController graph, int barIndex)
+        public void CreateBar(BrainFlowSingleChannelDataVisualizer graph, int barIndex)
         {
-            graphController = graph;
-            graphRect = graphController.graphContainerRect;
+            brainFlowSingleChannelDataVisualizer = graph;
+            graphRect = brainFlowSingleChannelDataVisualizer.graphContainerRect;
             barId = barIndex;
             barImage = gameObject.GetComponent<Image>();
             barRect = gameObject.GetComponent<RectTransform>();
@@ -34,31 +34,30 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
             labelText = label.AddComponent<Text>();
             labelText.text = barId.ToString();
             labelText.alignment = TextAnchor.MiddleCenter;
-            labelRect = label.GetComponent<RectTransform>();    
-
+            labelRect = label.GetComponent<RectTransform>();
         }
 
         private void Update()
         {
-            if (graphController.graphData.Count - 1 <  barId || barId > graphController.numberOfDataPoints - 1)
+            if (brainFlowSingleChannelDataVisualizer.graphData.Count - 1 <  barId || barId > brainFlowSingleChannelDataVisualizer.numberOfDataPoints - 1)
             {
                 barImage.enabled = false;
                 return;
             }
 
-            var xInterval = graphController.xInterval;
+            var xInterval = brainFlowSingleChannelDataVisualizer.xInterval;
             
             barImage.enabled = true;
             xPosition = (barId+1)*xInterval;
-            yPosition = (graphController.graphData[barId] / graphController.yMaximum) * graphRect.sizeDelta.y;
+            yPosition = (float) (brainFlowSingleChannelDataVisualizer.graphData[barId] / brainFlowSingleChannelDataVisualizer.yMaximum) * graphRect.sizeDelta.y;
             
             barRect.sizeDelta = new Vector2(xInterval*0.8f, yPosition);
             barRect.anchoredPosition = new Vector2(xPosition, 0);
             
             
-            barImage.color = graphController.dataBarColor;
+            barImage.color = brainFlowSingleChannelDataVisualizer.dataBarColor;
             
-            labelRect.anchoredPosition = new Vector2(0, graphController.xLabelOffset);
+            labelRect.anchoredPosition = new Vector2(0, brainFlowSingleChannelDataVisualizer.xLabelOffset);
         }
         
         

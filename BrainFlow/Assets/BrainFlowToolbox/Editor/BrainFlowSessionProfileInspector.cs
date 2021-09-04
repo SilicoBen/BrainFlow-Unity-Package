@@ -1,6 +1,6 @@
 ﻿using System;
 using brainflow;
-using BrainFlowToolbox.ScriptableObjects;
+using BrainFlowToolbox.Runtime.ScriptableObjects;
 using UnityEditor;
 using UnityEngine;
 
