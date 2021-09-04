@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using brainflow;
 using BrainFlowToolbox.Runtime.DataModels.Classes;
-using BrainFlowToolbox.Runtime.DataVisualization;
-using BrainFlowToolbox.Runtime.Enumerators;
-using BrainFlowToolbox.Runtime.ScriptableObjects;
+using BrainFlowToolbox.Runtime.DataModels.Enumerators;
+using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
+using BrainFlowToolbox.Runtime.DataStreaming;
+using BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming;
 using UnityEngine;
 
 namespace BrainFlowToolbox.Runtime.Utilities
@@ -39,7 +40,6 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 return new int[0];
             }
         }
-        
         public static BoardShim CreateBoardShim(BrainFlowSessionProfile brainFlowSessionProfile)
         {
             // In order to create a new boardShim we need the BoardID and we need a BrainFlowInputParams object
@@ -155,7 +155,6 @@ namespace BrainFlowToolbox.Runtime.Utilities
             
             return brainFlowSessionProfile.boardShim;
         }
-
         public static void StartSession(BrainFlowSessionProfile brainFlowSessionProfile)
         {
             if (brainFlowSessionProfile.boardShim == null)
@@ -176,6 +175,8 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 brainFlowSessionProfile.boardShim.start_stream(
                     brainFlowSessionProfile.bufferSize,
                     "file://" + brainFlowSessionProfile.boardDataFileName + " .csv:w");
+                CreateDataTypeManagers(brainFlowSessionProfile);
+                
                 Debug.Log("BrainFlow: Session Started Successfully!");
             }
             catch (BrainFlowException e)
@@ -184,7 +185,6 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 Debug.Log("BrainFlow: Unable to Start Session");
             }
         }
-
         public static Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> CreateDataTypeManagers(BrainFlowSessionProfile brainFlowSessionProfile)
         {
             brainFlowSessionProfile.dataManagers = new Dictionary<BrainFlowDataType, BrainFlowDataTypeManager>();
@@ -197,23 +197,51 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 brainFlowSessionProfile.dataManagers[i] = new BrainFlowDataTypeManager
                 {
                     dataType = i,
-                    channelIds = channels
+                    channelIds = channels,
+                    bufferSize = brainFlowSessionProfile.bufferSize,
+                    boardShim = brainFlowSessionProfile.boardShim,
+                    numberOfChannels = channels.Length,
+                    sessionProfile = brainFlowSessionProfile
                 };
+                
+                CreateChannelStreamers(brainFlowSessionProfile.dataManagers[i]);
+                CreateDataCanvas(brainFlowSessionProfile.dataManagers[i]);
             }
-
-            return brainFlowSessionProfile.dataManagers;
-        } 
-        
-        public static GameObject CreateDataStreamers(BrainFlowSessionProfile brainFlowSessionProfile)
-        {
             
-            dataDashboard = new GameObject("Data Dashboard");
-            dataDashboard.transform.SetParent(transform);
-            dataDashboard.AddComponent<BrainFlowDataDashboard>().Initialize(brainFlowSessionProfile);
+            return brainFlowSessionProfile.dataManagers;
         }
-        
-        
-
+        public static void CreateChannelStreamers(BrainFlowDataTypeManager dataManager)
+        {
+            if (!dataManager.dataStreamersContainer)
+            {
+                dataManager.dataStreamersContainer =
+                    new GameObject(dataManager.dataType + " Data Streamers");
+            }
+            
+            foreach (var i in dataManager.channelIds)
+            {
+                var newDataStreamer =  new GameObject(dataManager.dataType + " CH" + i);
+                var streamComponent = newDataStreamer.AddComponent<BrainFlowChannelDataStream>();
+                streamComponent.Initialize(dataManager, i);
+            }
+        }
+        public static void CreateDataCanvas(BrainFlowDataTypeManager dataManager)
+        {
+            if (!dataManager.dataCanvas)
+            {
+                var newDataCanvas = new GameObject(dataManager.dataType + " Data Canvas");
+                dataManager.dataCanvas = newDataCanvas.AddComponent<BrainFlowDataCanvas>();
+                dataManager.dataCanvas.Initialize(dataManager);
+            }
+            
+            foreach (var i in dataManager.channelIds)
+            {
+                var newDataVisualizer =  new GameObject(dataManager.dataType + " CH" + i + " Visualizer");
+                var streamComponent = newDataVisualizer.AddComponent<BrainFlowChannelDataStream>();
+                streamComponent.Initialize(dataManager, i);
+                dataManager.dataCanvas.AddDataStreamVisualizer(newDataVisualizer);
+            }
+        }
         public static void EndSession(BrainFlowSessionProfile brainFlowSessionProfile)
         {
             

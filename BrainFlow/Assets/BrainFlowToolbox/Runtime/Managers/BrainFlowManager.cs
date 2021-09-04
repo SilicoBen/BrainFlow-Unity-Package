@@ -1,4 +1,4 @@
-﻿using BrainFlowToolbox.Runtime.ScriptableObjects;
+﻿using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using UnityEditor;
 using UnityEngine;
 

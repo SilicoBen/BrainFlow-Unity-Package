@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
 using brainflow;
 using BrainFlowToolbox.Runtime.DataModels.Classes;
-using BrainFlowToolbox.Runtime.DataVisualization;
-using BrainFlowToolbox.Runtime.Enumerators;
-using BrainFlowToolbox.Runtime.Managers;
+using BrainFlowToolbox.Runtime.DataModels.Enumerators;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-namespace BrainFlowToolbox.Runtime.ScriptableObjects
+namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "BrainFlowSessionProfile", menuName = "BrainFlow/BrainFlowSessionProfile", order = 0)]
     public class BrainFlowSessionProfile : ScriptableObject
@@ -16,10 +13,9 @@ namespace BrainFlowToolbox.Runtime.ScriptableObjects
         public BoardIds board;
         public string sessionName;
         public string boardDataFileName;
-        
-
-        [Header("BrainFlow Input Params")]
         public int bufferSize = 450000;
+        
+        [Header("BrainFlow Input Params")]
         public int serialPortNumber;
         public string deviceSerialNumber;
         public string playbackFilePath;
@@ -27,6 +23,13 @@ namespace BrainFlowToolbox.Runtime.ScriptableObjects
         public string ipPort;
         public string macAddress;
         public int deviceDiscoveryTimeout;
+
+        [Header("Data Visualization Options")] public bool createDataDashboard;
+        public Color graphBackgroundColor;
+        public Color graphBarColor;
+        public Color graphLineColor;
+        public Color graphPointColor;
+        
 
         // Created at Runtime
         public BoardShim boardShim;

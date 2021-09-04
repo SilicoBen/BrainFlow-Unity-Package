@@ -1,6 +1,6 @@
 ﻿using System;
 using brainflow;
-using BrainFlowToolbox.Runtime.ScriptableObjects;
+using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using UnityEditor;
 using UnityEngine;
 
@@ -178,6 +178,14 @@ namespace BrainFlowToolbox.Editor
             
             GUILayout.Space(10);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("createDataDashboard"));
+            if (sessionProfile.createDataDashboard)
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("graphBackgroundColor"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("graphBarColor"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("graphLineColor"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("graphPointColor"));
+            }
+            
             GUILayout.EndVertical();
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();

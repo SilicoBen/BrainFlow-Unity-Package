@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BrainFlowToolbox.Runtime.Enumerators
+namespace BrainFlowToolbox.Runtime.DataModels.Enumerators
 {
     [Serializable]
     public enum BrainFlowDataType
