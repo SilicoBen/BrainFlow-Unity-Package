@@ -60,7 +60,6 @@ namespace BrainFlowToolbox.Editor
             GUILayout.BeginVertical(EditorStyles.helpBox, GUILayout.Width(scale * 0.95f));
             GUILayout.Space(10);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("sessionName"), new GUIContent("Name"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
             GUILayout.Space(10);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("board"));
             

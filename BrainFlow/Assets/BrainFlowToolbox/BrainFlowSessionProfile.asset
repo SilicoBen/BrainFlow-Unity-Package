@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e903a6e00cc422fab7c7f6e02b2f370, type: 3}
   m_Name: BrainFlowSessionProfile
   m_EditorClassIdentifier: 
-  sessionName: BrainFlowSessionProfile
-  description: Session Description
   board: -1
+  sessionName: BrainFlowSessionProfile
   boardDataFileName: Testing Synthetic Board Connection
   bufferSize: 450000
   serialPortNumber: 0
@@ -25,10 +24,7 @@ MonoBehaviour:
   macAddress: 
   deviceDiscoveryTimeout: 0
   createDataDashboard: 1
-  samplingRate: 250
-  numberOfDataPoints: 0
-  dataStreamingGameObject: {fileID: 0}
-  boardId: -1
-  brainFlowDashboard: {fileID: 0}
-  brainFlowDataDashboard: {fileID: 0}
-  brainFlowSessionDataStreamer: {fileID: 0}
+  graphBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  graphBarColor: {r: 1, g: 1, b: 1, a: 1}
+  graphLineColor: {r: 0, g: 0, b: 0, a: 0}
+  graphPointColor: {r: 0, g: 0, b: 0, a: 0}
