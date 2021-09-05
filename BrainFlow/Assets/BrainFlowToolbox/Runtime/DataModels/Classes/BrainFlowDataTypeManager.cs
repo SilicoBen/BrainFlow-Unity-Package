@@ -18,13 +18,16 @@ namespace BrainFlowToolbox.Runtime.DataModels.Classes
         public int[] channelIds;
         public int numberOfChannels;
         public int bufferSize;
-        public Dictionary<int, List<double>> channelData = new Dictionary<int, List<double>>();
-        public Dictionary<int, BrainFlowChannelDataStream> dataStreamers = new Dictionary<int, BrainFlowChannelDataStream>();
+        public Dictionary<int, List<double>> ChannelData = new Dictionary<int, List<double>>();
+        public Dictionary<int, BrainFlowChannelDataStream> DataStreamers = new Dictionary<int, BrainFlowChannelDataStream>();
         public BoardShim boardShim;
         public GameObject dataStreamersContainer;
         public int dataRange;
         public BrainFlowDataCanvas dataCanvas;
         public BrainFlowChannelTypeDashboard channelDashboard;
         public List<BrainFlowChannelVisualizer> channelDataStreamVisualizers;
+        public RectTransform dataCanvasRect;
+        public float xInterval;
+        public float yInterval;
     }
 }

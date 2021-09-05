@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using brainflow;
+using BrainFlowToolbox.Runtime.DataModels.Enumerators;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using BrainFlowToolbox.Runtime.Utilities;
 using UnityEngine;
@@ -14,10 +15,15 @@ namespace BrainFlowToolbox.Runtime.Managers
         public bool streaming;
         public GameObject dataDashboard;
         public GameObject eventSystem;
+        public BrainFlowDataType currentDataCanvas;
         
         private void Update()
         {
             if (brainFlowSessionProfile.boardShim == null) return;
+            if (currentDataCanvas == brainFlowSessionProfile.displayData) return;
+            BrainFlowUtilities.UpdateDataCanvas(brainFlowSessionProfile);
+            currentDataCanvas = brainFlowSessionProfile.displayData;
+
         }
     
         public void StartSession(BrainFlowSessionProfile sessionProfile)
@@ -43,10 +49,9 @@ namespace BrainFlowToolbox.Runtime.Managers
                 BoardShim.enable_dev_board_logger();
                 BrainFlowUtilities.CreateBoardShim(brainFlowSessionProfile);
                 BrainFlowUtilities.StartSession(brainFlowSessionProfile);
-                
-               streaming = true;
-                
-                Debug.Log("BrainFlow: Session Started Successfully!");
+                BrainFlowUtilities.UpdateDataCanvas(brainFlowSessionProfile);
+                streaming = true;
+               
             }
             catch (BrainFlowException e)
             {
@@ -55,16 +60,10 @@ namespace BrainFlowToolbox.Runtime.Managers
                 streaming = false;
             }
         }
-
-
         
-        // EndSession calls release_session and ensures that all resources correctly released
-        
-        
-
         private void OnDestroy()
         {
-            BrainFlowUtilities.EndSession(brainFlowSessionProfile);
+            BrainFlowUtilities.EndSession();
         }
     }
 }

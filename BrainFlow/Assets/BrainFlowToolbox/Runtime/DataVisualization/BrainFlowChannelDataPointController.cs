@@ -9,57 +9,61 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
     {
         [FormerlySerializedAs("brainFlowSingleChannelDataStreamVisualizer")] public BrainFlowChannelVisualizer brainFlowChannelVisualizer;
         public RectTransform graphRect;
-        public int barId;
-        private float yPosition;
-        private float xPosition;
+        public int dataId;
+        private float height;
+        private float width;
         private Image barImage;
         private RectTransform barRect;
         private GameObject label;
         private RectTransform labelRect;
         private Text labelText;
-        private BrainFlowChannelVisualizer streamVisualizer;
+        private BrainFlowChannelVisualizer channelVisualizer;
         public BrainFlowDataTypeManager dataManager;
+        private bool initialized;
         
-        public void CreateBar(BrainFlowChannelVisualizer graph, int barIndex)
+        public void CreateBar(BrainFlowChannelVisualizer graph, int dataIndex)
         {
-            streamVisualizer = graph;
+            channelVisualizer = graph;
             dataManager = graph.dataManager;
             brainFlowChannelVisualizer = graph;
             graphRect = graph.graphRect;
-            barId = barIndex;
+            dataId = dataIndex;
             
             barImage = gameObject.GetComponent<Image>();
             barRect = gameObject.GetComponent<RectTransform>();
             
-            barRect.anchorMin = Vector2.zero;
-            barRect.anchorMax = Vector2.zero;
-            barRect.pivot = new Vector2(0.5f, 0);
+            barRect.anchorMin = new Vector2(0, 0);
+            barRect.anchorMax = new Vector2(0, 0);
+            barRect.pivot = new Vector2(0.5f, 0.5f);
 
             label = new GameObject("Label");
             label.transform.SetParent(transform, false);
             labelText = label.AddComponent<Text>();
-            labelText.text = barId.ToString();
+            labelText.text = dataId.ToString();
             labelText.alignment = TextAnchor.MiddleCenter;
             labelRect = label.GetComponent<RectTransform>();
-            
+            initialized = true;
         }
 
         private void Update()
         {
-            if (dataManager.dataRange <  barId || barId > streamVisualizer.graphData.Count - 1)
+            if (!initialized) return;
+            if (dataManager.dataRange <  dataId || dataId > channelVisualizer.graphData.Count - 1)
             {
                 barImage.enabled = false;
                 return;
             }
 
-            var xInterval = streamVisualizer.xInterval;
+            var xInterval = dataManager.xInterval;
             
             barImage.enabled = true;
-            xPosition = (barId+1)*xInterval;
-            yPosition = (float) (brainFlowChannelVisualizer.graphData[barId])*10 / streamVisualizer.graphHeight;
+            width = (dataId+1)*xInterval;
+            height = (float) (brainFlowChannelVisualizer.graphData[dataId]) * 
+                dataManager.sessionProfile.yScale / 
+                channelVisualizer.graphHeight ;
             
-            barRect.sizeDelta = new Vector2(xInterval*0.8f, yPosition);
-            barRect.anchoredPosition = new Vector2(xPosition, 0);
+            barRect.sizeDelta = new Vector2(xInterval*0.8f, height);
+            barRect.anchoredPosition = new Vector2(width, height/2);
             
             
             barImage.color = dataManager.sessionProfile.graphBarColor;

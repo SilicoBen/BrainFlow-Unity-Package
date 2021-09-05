@@ -23,21 +23,27 @@ namespace BrainFlowToolbox.Runtime.DataStreaming
         {
             dataManager = dataTypeManager;
             channelID = channelIndex;
-            dataManager.dataStreamers[channelIndex] = this;
+            dataManager.DataStreamers[channelIndex] = this;
             transform.SetParent(dataManager.dataStreamersContainer.transform);
+            dataManager.ChannelData[channelID] = channelData;
             streaming = true;
         }
 
         private void Update()
         {
-            if(streaming == false) return;
+            if(!streaming) return;
+
+            var newData = dataManager.boardShim.get_current_board_data(1)[channelID, 0];
+            channelData.Add(newData);
+
+            if (channelData.Count <= dataManager.dataRange)
+            {
+                dataManager.ChannelData[channelID] = channelData;
+                return;
+            }
             
-            channelData.Add(dataManager.boardShim.get_current_board_data(1)[channelID, 0]);
-            
-            if (channelData.Count <= dataManager.bufferSize) return;
-            
-            channelData = channelData.GetRange(1, dataManager.bufferSize);
-            dataManager.channelData[channelID] = channelData;
+            channelData = channelData.GetRange(1, dataManager.dataRange);
+            dataManager.ChannelData[channelID] = channelData;
         }
         
     }

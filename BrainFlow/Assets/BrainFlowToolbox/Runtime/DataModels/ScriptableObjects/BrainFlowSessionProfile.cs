@@ -25,6 +25,9 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public int deviceDiscoveryTimeout;
 
         [Header("Data Visualization Options")] public bool createDataDashboard;
+        public BrainFlowDataType displayData;
+        [Range(0,50)]
+        public float yScale = 1;
         public Color graphBackgroundColor;
         public Color graphBarColor;
         public Color graphLineColor;

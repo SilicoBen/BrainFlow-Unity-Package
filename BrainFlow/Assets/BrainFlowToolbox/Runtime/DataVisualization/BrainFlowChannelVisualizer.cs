@@ -9,7 +9,6 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
 {
     public class BrainFlowChannelVisualizer : MonoBehaviour
     {
-        public BrainFlowChannelDataStream channelDataStream;
         public BrainFlowDataTypeManager dataManager;
         private BrainFlowDataCanvas dataCanvas;
         private int channelID;
@@ -19,10 +18,9 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
         public RectTransform graphRect;
         private RectTransform dataCanvasRect;
         public GameObject yLabelsContainer;
-        public float xInterval;
         public int graphIndex;
         private int currentDataTotal;
-        public List<double> graphData;
+        public List<double> graphData = new List<double>();
         public float graphHeight;
         
 
@@ -35,26 +33,29 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             canvasImage = gameObject.AddComponent<Image>();
             graphRect = gameObject.GetComponent<RectTransform>();
             dataCanvasRect = manager.dataCanvas.dataCanvasRect;
-            
+            graphRect.anchorMin = new Vector2(0.5f, 0);
+            graphRect.anchorMax = new Vector2(0.5f, 0);
+            graphRect.pivot = new Vector2(0.5f, 0.5f);
+            dataCanvas = dataManager.dataCanvas;
+            graphRect.sizeDelta = new Vector2(dataCanvasRect.sizeDelta.x, dataCanvas.yInterval * 0.9f);
             initialized = true;
         }
 
         private void Update()
         {
             if (!initialized) return;
+            dataCanvasRect = dataManager.dataCanvasRect;
+            var dataCanvasSize = dataCanvasRect.sizeDelta;
+            graphRect.sizeDelta = new Vector2(dataCanvasSize.x, dataManager.yInterval * 0.9f);
+            canvasImage.color = dataManager.sessionProfile.graphBackgroundColor;
             var dataCanvasSizeDelta = dataCanvasRect.sizeDelta;
-            xInterval = dataCanvasSizeDelta.x / (dataManager.numberOfChannels+1);
-            graphRect.anchoredPosition = new Vector2(0, (graphIndex+1)*dataCanvas.yInterval);
+            graphRect.anchoredPosition = new Vector2(0, (graphIndex+1)*dataManager.yInterval + 10);
+            //Debug.Log("Graph Rect: " + graphRect + " Graph Index: " + graphIndex + "Graph Rect: " + 
             CreateGraphObjects();
             graphHeight = dataCanvasSizeDelta.y;
-            var channelData = dataManager.channelData[channelID];
-
-            graphData =  channelData.Count < dataManager.dataRange ? channelData :
-                channelData.GetRange(channelData.Count - 1 - dataManager.dataRange, 
-                    dataManager.dataRange);
+            graphData =  dataManager.ChannelData[channelID];
         }
         
-
         private void CreateGraphObjects()
         {
             while (currentDataTotal < dataManager.dataRange)
