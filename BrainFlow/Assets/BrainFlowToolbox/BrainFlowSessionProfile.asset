@@ -24,9 +24,12 @@ MonoBehaviour:
   macAddress: 
   deviceDiscoveryTimeout: 0
   createDataDashboard: 1
-  displayData: 1
-  yScale: 24.1
+  displayData: 0
   graphBackgroundColor: {r: 0.18054211, g: 0.6698113, b: 0.18054211, a: 0.5529412}
-  graphBarColor: {r: 0, g: 0, b: 0, a: 0.6156863}
+  graphBarColor: {r: 0, g: 0, b: 0, a: 1}
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
+  dataDashboard: {fileID: 0}
+  numberOfDataPoints: 10
+  yMaxValue: 5000
+  dataContainer: {fileID: 0}

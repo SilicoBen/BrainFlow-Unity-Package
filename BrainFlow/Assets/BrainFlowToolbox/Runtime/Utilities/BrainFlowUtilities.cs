@@ -17,6 +17,7 @@ namespace BrainFlowToolbox.Runtime.Utilities
         private static Dictionary<BrainFlowDataType, GameObject> dataStreamers;
         private static GameObject activeDataCanvas;
         private static GameObject activeDataStreamer;
+        private static GameObject dataDashboard;
         
         
         public static int[] GetChannelIds(BrainFlowDataType dataType, BoardIds board)
@@ -195,6 +196,8 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 Debug.Log("BrainFlow: Unable to Start Session");
             }
         }
+
+        
         public static Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> CreateDataTypeManagers(BrainFlowSessionProfile brainFlowSessionProfile)
         {
             brainFlowSessionProfile.dataManagers = new Dictionary<BrainFlowDataType, BrainFlowDataTypeManager>();
@@ -218,7 +221,7 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 
                 CreateChannelStreamers(brainFlowSessionProfile.dataManagers[i]);
                 CreateDataCanvas(brainFlowSessionProfile.dataManagers[i]);
-                dataCanvases[i] = brainFlowSessionProfile.dataManagers[i].dataCanvas.gameObject;
+                dataCanvases[i] = brainFlowSessionProfile.dataManagers[i].channelCanvas.gameObject;
                 dataStreamers[i] = brainFlowSessionProfile.dataManagers[i].dataStreamersContainer.gameObject;
             }
             
@@ -242,12 +245,12 @@ namespace BrainFlowToolbox.Runtime.Utilities
         }
         public static void CreateDataCanvas(BrainFlowDataTypeManager dataManager)
         {
-            if (!dataManager.dataCanvas)
+            if (!dataManager.channelCanvas)
             {
                 var newDataCanvas = new GameObject(dataManager.dataType + " Data Canvas");
-                dataManager.dataCanvas = newDataCanvas.AddComponent<BrainFlowDataCanvas>();
-                dataManager.dataCanvas.Initialize(dataManager);
-                dataManager.dataCanvas.gameObject.SetActive(false);
+                dataManager.channelCanvas = newDataCanvas.AddComponent<BrainFlowChannelCanvas>();
+                dataManager.channelCanvas.Initialize(dataManager);
+                dataManager.channelCanvas.gameObject.SetActive(false);
             }
             
             foreach (var i in dataManager.channelIds)
@@ -255,10 +258,8 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 var newDataVisualizer =  new GameObject(dataManager.dataType + " CH" + i + " Visualizer");
                 var visualizerComponent = newDataVisualizer.AddComponent<BrainFlowChannelVisualizer>();
                 visualizerComponent.Initialize(dataManager, i);
-                dataManager.dataCanvas.AddDataStreamVisualizer(newDataVisualizer);
+                dataManager.channelCanvas.AddDataStreamVisualizer(newDataVisualizer);
             }
-            
-            
         }
         public static void EndSession()
         {

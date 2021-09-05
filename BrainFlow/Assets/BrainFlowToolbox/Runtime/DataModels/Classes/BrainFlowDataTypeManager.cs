@@ -23,8 +23,7 @@ namespace BrainFlowToolbox.Runtime.DataModels.Classes
         public BoardShim boardShim;
         public GameObject dataStreamersContainer;
         public int dataRange;
-        public BrainFlowDataCanvas dataCanvas;
-        public BrainFlowChannelTypeDashboard channelDashboard;
+        public BrainFlowChannelCanvas channelCanvas;
         public List<BrainFlowChannelVisualizer> channelDataStreamVisualizers;
         public RectTransform dataCanvasRect;
         public float xInterval;

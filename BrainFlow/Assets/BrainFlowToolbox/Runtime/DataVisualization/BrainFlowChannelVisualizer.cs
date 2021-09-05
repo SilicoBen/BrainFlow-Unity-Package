@@ -10,7 +10,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
     public class BrainFlowChannelVisualizer : MonoBehaviour
     {
         public BrainFlowDataTypeManager dataManager;
-        private BrainFlowDataCanvas dataCanvas;
+        private BrainFlowChannelCanvas channelCanvas;
         private int channelID;
         private Canvas graphCanvas;
         private Image canvasImage;
@@ -32,18 +32,19 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             graphCanvas = gameObject.AddComponent<Canvas>();
             canvasImage = gameObject.AddComponent<Image>();
             graphRect = gameObject.GetComponent<RectTransform>();
-            dataCanvasRect = manager.dataCanvas.dataCanvasRect;
+            dataCanvasRect = manager.channelCanvas.dataCanvasRect;
             graphRect.anchorMin = new Vector2(0.5f, 0);
             graphRect.anchorMax = new Vector2(0.5f, 0);
             graphRect.pivot = new Vector2(0.5f, 0.5f);
-            dataCanvas = dataManager.dataCanvas;
-            graphRect.sizeDelta = new Vector2(dataCanvasRect.sizeDelta.x, dataCanvas.yInterval * 0.9f);
+            channelCanvas = dataManager.channelCanvas;
+            graphRect.sizeDelta = new Vector2(dataCanvasRect.sizeDelta.x, channelCanvas.yInterval * 0.9f);
             initialized = true;
         }
 
         private void Update()
         {
             if (!initialized) return;
+            dataManager.dataRange = dataManager.sessionProfile.numberOfDataPoints;
             dataCanvasRect = dataManager.dataCanvasRect;
             var dataCanvasSize = dataCanvasRect.sizeDelta;
             graphRect.sizeDelta = new Vector2(dataCanvasSize.x, dataManager.yInterval * 0.9f);
@@ -62,7 +63,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             {
                 var newDataBar = new GameObject("Data Bar: " + currentDataTotal, typeof(Image));
                 newDataBar.transform.SetParent(graphRect, false);
-                newDataBar.AddComponent<BrainFlowChannelDataPointController>().CreateBar(this, currentDataTotal);
+                newDataBar.AddComponent<BrainFlowDataPointManager>().CreateBar(this, currentDataTotal);
                 currentDataTotal++;
             }
         }

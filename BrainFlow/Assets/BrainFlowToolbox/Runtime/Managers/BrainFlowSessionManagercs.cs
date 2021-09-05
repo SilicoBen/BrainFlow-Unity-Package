@@ -47,6 +47,8 @@ namespace BrainFlowToolbox.Runtime.Managers
                 BoardShim.disable_board_logger();
                 BoardShim.set_log_file(brainFlowSessionProfile.boardDataFileName + "_log.txt");
                 BoardShim.enable_dev_board_logger();
+                brainFlowSessionProfile.dataDashboard = GameObject.Find("DataDashboard") ?? (GameObject) Instantiate(Resources.Load("Prefabs/DataDashboard"), transform);
+                brainFlowSessionProfile.dataDashboard.GetComponent<BrainFlowDataDashboard>().Initialize(brainFlowSessionProfile);
                 BrainFlowUtilities.CreateBoardShim(brainFlowSessionProfile);
                 BrainFlowUtilities.StartSession(brainFlowSessionProfile);
                 BrainFlowUtilities.UpdateDataCanvas(brainFlowSessionProfile);
@@ -60,6 +62,7 @@ namespace BrainFlowToolbox.Runtime.Managers
                 streaming = false;
             }
         }
+        
         
         private void OnDestroy()
         {

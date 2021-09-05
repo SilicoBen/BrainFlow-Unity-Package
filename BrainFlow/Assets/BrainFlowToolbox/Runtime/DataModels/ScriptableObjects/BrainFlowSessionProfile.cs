@@ -24,10 +24,9 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public string macAddress;
         public int deviceDiscoveryTimeout;
 
-        [Header("Data Visualization Options")] public bool createDataDashboard;
+        [Header("Data Visualization Options")] 
+        public bool createDataDashboard;
         public BrainFlowDataType displayData;
-        [Range(0,50)]
-        public float yScale = 1;
         public Color graphBackgroundColor;
         public Color graphBarColor;
         public Color graphLineColor;
@@ -38,6 +37,10 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public BoardShim boardShim;
         public BrainFlowInputParams brainFlowInputParams;
         public Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> dataManagers;
+        public GameObject dataDashboard;
+        public int numberOfDataPoints;
+        public float yMaxValue;
+        public RectTransform dataContainer;
 
     }
 }
