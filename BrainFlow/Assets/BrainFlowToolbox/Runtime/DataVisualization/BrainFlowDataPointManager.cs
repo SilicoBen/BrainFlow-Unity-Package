@@ -11,16 +11,16 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
         [FormerlySerializedAs("brainFlowSingleChannelDataStreamVisualizer")] public BrainFlowChannelVisualizer brainFlowChannelVisualizer;
         public RectTransform graphRect;
         public int dataId;
-        private float width;
+        private float xPosition;
         public float dataValue;
-        private Image barImage;
-        private RectTransform barRect;
+        private Image barLineImage;
+        private RectTransform barLineRect;
         private BrainFlowChannelVisualizer channelVisualizer;
         public BrainFlowDataTypeManager dataManager;
         private bool initialized;
-       
         
-        public void CreateBar(BrainFlowChannelVisualizer graph, int dataIndex)
+        
+        public void Initialize(BrainFlowChannelVisualizer graph, int dataIndex)
         {
             channelVisualizer = graph;
             dataManager = graph.dataManager;
@@ -28,39 +28,72 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             graphRect = graph.graphRect;
             dataId = dataIndex;
             
-            barImage = gameObject.GetComponent<Image>();
-            barRect = gameObject.GetComponent<RectTransform>();
-            
-            barRect.anchorMin = new Vector2(0, 0.5f);
-            barRect.anchorMax = new Vector2(0, 0.5f);
-            barRect.pivot = new Vector2(0.5f, 0.5f);
-            
+            barLineImage = gameObject.GetComponent<Image>();
+            barLineRect = gameObject.GetComponent<RectTransform>();
+
             initialized = true;
         }
 
+        
+        
         private void Update()
         {
             if (!initialized) return;
-            if (dataManager.dataRange <  dataId || dataId > channelVisualizer.graphData.Count - 1)
-            {
-                barImage.enabled = false;
-                return;
-            }
-            barImage.enabled = true;
+            
             var xInterval = dataManager.xInterval;
-
-            var yScaling = channelVisualizer.graphHeight / dataManager.sessionProfile.yMaxValue  ;
-            dataValue = (float) brainFlowChannelVisualizer.graphData[dataId];
-
+            var yScaling = channelVisualizer.graphHeight / dataManager.sessionProfile.yMaxValue;
             
-            width = (dataId+1)*xInterval;
+            
     
+            switch (dataManager.sessionProfile.visualizationType)
+            {
+                case DataModels.Enumerators.VisualizationType.Line:
+                    if (dataManager.dataRange <  dataId + 1 || dataId + 1 > channelVisualizer.graphData.Count - 1)
+                    {
+                        barLineImage.enabled = false;
+                    }
+                    else
+                    {
+                        barLineImage.enabled = true;
+                        var dataPoint = new Vector2((dataId+1)*xInterval, (float) brainFlowChannelVisualizer.graphData[dataId]* yScaling);
+                        var nextDataPoint = new Vector2((dataId+2)*xInterval, (float) brainFlowChannelVisualizer.graphData[dataId+1]* yScaling);
+                        var direction = (nextDataPoint - dataPoint).normalized;
+                        var distance = Vector2.Distance(dataPoint, nextDataPoint);
+                        barLineRect.sizeDelta = new Vector2(distance, dataManager.sessionProfile.thickness);
+                        barLineRect.anchorMin = new Vector2(0, 0.5f);
+                        barLineRect.anchorMax = new Vector2(0, 0.5f);
+                        barLineRect.anchoredPosition = dataPoint + direction * (distance * 0.5f);
+                        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                        if (angle < 0) angle += 360;
+                        barLineRect.localEulerAngles = new Vector3(0, 0, angle);
+                    }
+                    break;
+                case DataModels.Enumerators.VisualizationType.Bar:
+                    if (dataManager.dataRange <  dataId || dataId > channelVisualizer.graphData.Count - 1)
+                    {
+                        barLineImage.enabled = false;
+                    }
+                    else
+                    {
+                        dataValue = (float) brainFlowChannelVisualizer.graphData[dataId];
+                        var dataPoint = new Vector2((dataId+1)*xInterval, (float) dataValue* yScaling);
+                        barLineImage.enabled = true;
+
+                        barLineRect.anchorMin = new Vector2(0, 0.5f);
+                        barLineRect.anchorMax = new Vector2(0, 0.5f);
+                        barLineRect.pivot = new Vector2(0.5f, 0.5f);
+                        barLineRect.localEulerAngles = new Vector3(0, 0, 0);
+                        barLineRect.sizeDelta = new Vector2(xInterval*0.8f, Math.Abs(dataValue) * yScaling);
+                        barLineRect.anchoredPosition = new Vector2(dataPoint.x, (dataValue * yScaling)/2);
+                    }
+                    
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
             
-            barRect.sizeDelta = new Vector2(xInterval*0.8f, Math.Abs(dataValue) * yScaling);
-            barRect.anchoredPosition = new Vector2(width, (dataValue * yScaling)/2);
-            
-            
-            barImage.color = dataManager.sessionProfile.graphBarColor;
+            barLineImage.color = dataManager.sessionProfile.graphBarColor;
             
             //labelRect.anchoredPosition = new Vector2(0, brainFlowChannelVisualizer.xLabelOffset);
         }

@@ -25,11 +25,13 @@ MonoBehaviour:
   deviceDiscoveryTimeout: 0
   createDataDashboard: 1
   displayData: 0
-  graphBackgroundColor: {r: 0.18054211, g: 0.6698113, b: 0.18054211, a: 0.5529412}
-  graphBarColor: {r: 0, g: 0, b: 0, a: 1}
+  graphBackgroundColor: {r: 0, g: 0, b: 0, a: 0.6392157}
+  graphBarColor: {r: 0.4393531, g: 1, b: 0.8385196, a: 1}
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
+  visualizationType: 0
+  thickness: 1
   dataDashboard: {fileID: 0}
-  numberOfDataPoints: 10
-  yMaxValue: 5000
+  numberOfDataPoints: 100
+  yMaxValue: 10000
   dataContainer: {fileID: 0}

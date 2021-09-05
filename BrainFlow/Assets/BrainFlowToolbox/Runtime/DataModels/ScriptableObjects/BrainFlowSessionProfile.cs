@@ -34,6 +34,8 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         
 
         // Created at Runtime
+        public VisualizationType visualizationType;
+        public float thickness;
         public BoardShim boardShim;
         public BrainFlowInputParams brainFlowInputParams;
         public Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> dataManagers;

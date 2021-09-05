@@ -63,7 +63,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             {
                 var newDataBar = new GameObject("Data Bar: " + currentDataTotal, typeof(Image));
                 newDataBar.transform.SetParent(graphRect, false);
-                newDataBar.AddComponent<BrainFlowDataPointManager>().CreateBar(this, currentDataTotal);
+                newDataBar.AddComponent<BrainFlowDataPointManager>().Initialize(this, currentDataTotal);
                 currentDataTotal++;
             }
         }
@@ -79,7 +79,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             //     yLabel.gameObject.SetActive(true);
             //     var normalizedValue = i * 1f / numberOfYLabels;
             //     yLabel.anchoredPosition = new Vector2(yLabelOffset, normalizedValue*graphSizeDelta.y);
-            //     yLabel.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
+            //     yLabel.GetComponent<Text>().titleText = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
             //     
             // }
             //
