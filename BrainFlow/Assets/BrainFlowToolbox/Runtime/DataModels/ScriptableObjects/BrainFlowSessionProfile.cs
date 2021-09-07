@@ -22,6 +22,7 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public string ipAddress;
         public string ipPort;
         public string macAddress;
+        public string otherInfo;
         public int deviceDiscoveryTimeout;
 
         [Header("Data Visualization Options")] 

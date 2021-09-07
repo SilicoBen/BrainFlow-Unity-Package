@@ -69,6 +69,8 @@ namespace BrainFlowToolbox.Editor
             switch (sessionProfile.board)
             {
                 case BoardIds.PLAYBACK_FILE_BOARD:
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("otherInfo"), 
+                        new GUIContent("Board Id for master board"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("playbackFilePath"), 
                         new GUIContent("Playback File Path (.file)"));
                     break;
@@ -77,6 +79,8 @@ namespace BrainFlowToolbox.Editor
                         new GUIContent("Multicast IP (.ip_address)"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("ipPort"), 
                         new GUIContent("Multicast IP (.ip_port)"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("otherInfo"), 
+                        new GUIContent("Board Id for master board"));
                     break;
                 case BoardIds.SYNTHETIC_BOARD:
                     break;
@@ -91,6 +95,7 @@ namespace BrainFlowToolbox.Editor
                             "Enter the number of the serial port only. If using COM3 simply enter 3"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("macAddress"), 
                         new GUIContent("MAC Address (.mac_address)", "Optional"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     break;
                 case BoardIds.CYTON_DAISY_BOARD:
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("serialPortNumber"),
@@ -104,20 +109,27 @@ namespace BrainFlowToolbox.Editor
                         new GUIContent("WIFI Shield IP (.ip_address)"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("ipPort"), 
                         new GUIContent("Any Free Local Port # (.ip_port)"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"), 
+                        new GUIContent("HTTP Response Timeout (.timeout)"));
                     break;
                 case BoardIds.CYTON_WIFI_BOARD:
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("ipAddress"), 
                         new GUIContent("WIFI Shield IP (.ip_address)"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("ipPort"), 
                         new GUIContent("Any Free Local Port # (.ip_port)"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"), 
+                        new GUIContent("HTTP Response Timeout (.timeout)"));
                     break;
                 case BoardIds.CYTON_DAISY_WIFI_BOARD:
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("ipAddress"), 
                         new GUIContent("WIFI Shield IP (.ip_address)"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("ipPort"), 
                         new GUIContent("Any Free Local Port # (.ip_port)"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"), 
+                        new GUIContent("HTTP Response Timeout (.timeout)"));
                     break;
                 case BoardIds.BRAINBIT_BOARD:
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceSerialNumber"), 
                         new GUIContent("Serial Number (.serial_number)", "Optional"));
                     break;
@@ -126,10 +138,19 @@ namespace BrainFlowToolbox.Editor
                         new GUIContent("Serial Number (.serial_number)", "Optional"));
                     break;
                 case BoardIds.CALLIBRI_EEG_BOARD:
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("otherInfo"), 
+                        new GUIContent("External Switch Input Mio USB", "Optional"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     break;
                 case BoardIds.CALLIBRI_EMG_BOARD:
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("otherInfo"), 
+                        new GUIContent("External Switch Input Mio USB", "Optional"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     break;
                 case BoardIds.CALLIBRI_ECG_BOARD:
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("otherInfo"), 
+                        new GUIContent("External Switch Input Mio USB", "Optional"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     break;
                 case BoardIds.FASCIA_BOARD:
                     break;
@@ -165,9 +186,8 @@ namespace BrainFlowToolbox.Editor
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("serialPortNumber"),
                         new GUIContent("Dongle Port # (.serial_port)", 
                             "Enter the number of the serial port only. If using COM3 simply enter 3"));
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceSerialNumber"), 
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceSerialNumber"),
                         new GUIContent("Device Name (.serial_number)", "Optional"));
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     break;
                 case BoardIds.MUSE_2_BLED_BOARD:
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("serialPortNumber"),
@@ -175,7 +195,6 @@ namespace BrainFlowToolbox.Editor
                             "Enter the number of the serial port only. If using COM3 simply enter 3"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceSerialNumber"), 
                         new GUIContent("Device Name (.serial_number)", "Optional"));
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     break;
                 case BoardIds.CROWN_BOARD:
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceSerialNumber"), 

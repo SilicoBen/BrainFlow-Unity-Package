@@ -65,54 +65,126 @@ namespace BrainFlowToolbox.Runtime.Utilities
             switch(brainFlowSessionProfile.board)
             {
                 case BoardIds.PLAYBACK_FILE_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.other_info = brainFlowSessionProfile.otherInfo;
+                    brainFlowSessionProfile.brainFlowInputParams.file = brainFlowSessionProfile.playbackFilePath;
                     break;
                 case BoardIds.STREAMING_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress;
+                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    brainFlowSessionProfile.brainFlowInputParams.other_info = brainFlowSessionProfile.otherInfo;
                     break;
                 case BoardIds.SYNTHETIC_BOARD:
                     break;
                 case BoardIds.CYTON_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_port =
+                        "COM" + brainFlowSessionProfile.serialPortNumber;
                     break;
                 case BoardIds.GANGLION_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_port =
+                        "COM" + brainFlowSessionProfile.serialPortNumber;
+                    brainFlowSessionProfile.brainFlowInputParams.mac_address = brainFlowSessionProfile.macAddress == "" ? 
+                        brainFlowSessionProfile.brainFlowInputParams.mac_address : brainFlowSessionProfile.macAddress;
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        15 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.CYTON_DAISY_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_port =
+                        "COM" + brainFlowSessionProfile.serialPortNumber;
                     break;
                 case BoardIds.GALEA_BOARD:
                     break;
                 case BoardIds.GANGLION_WIFI_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress == "" ? 
+                        "192.168.4.1" : brainFlowSessionProfile.ipAddress;
+                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        10 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.CYTON_WIFI_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress == "" ? 
+                        "192.168.4.1" : brainFlowSessionProfile.ipAddress;
+                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        10 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.CYTON_DAISY_WIFI_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress == "" ? 
+                        "192.168.4.1" : brainFlowSessionProfile.ipAddress;
+                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        10 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.BRAINBIT_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        15 : brainFlowSessionProfile.deviceDiscoveryTimeout;
+                    brainFlowSessionProfile.brainFlowInputParams.serial_number =
+                        brainFlowSessionProfile.deviceSerialNumber == ""
+                            ? brainFlowSessionProfile.brainFlowInputParams.serial_number
+                            : brainFlowSessionProfile.deviceSerialNumber;
                     break;
                 case BoardIds.UNICORN_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_number =
+                        brainFlowSessionProfile.deviceSerialNumber == ""
+                            ? brainFlowSessionProfile.brainFlowInputParams.serial_number
+                            : brainFlowSessionProfile.deviceSerialNumber;
                     break;
                 case BoardIds.CALLIBRI_EEG_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.other_info = brainFlowSessionProfile.otherInfo == "" ? 
+                        brainFlowSessionProfile.brainFlowInputParams.other_info : brainFlowSessionProfile.otherInfo;
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        15 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.CALLIBRI_EMG_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.other_info = brainFlowSessionProfile.otherInfo == "" ? 
+                        brainFlowSessionProfile.brainFlowInputParams.other_info : brainFlowSessionProfile.otherInfo;
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        15 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.CALLIBRI_ECG_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.other_info = brainFlowSessionProfile.otherInfo == "" ? 
+                        brainFlowSessionProfile.brainFlowInputParams.other_info : brainFlowSessionProfile.otherInfo;
+                    brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
+                        15 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.FASCIA_BOARD:
                     break;
                 case BoardIds.NOTION_1_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_number =
+                        brainFlowSessionProfile.deviceSerialNumber == ""
+                            ? brainFlowSessionProfile.brainFlowInputParams.serial_number
+                            : brainFlowSessionProfile.deviceSerialNumber;
                     break;
                 case BoardIds.NOTION_2_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_number =
+                        brainFlowSessionProfile.deviceSerialNumber == ""
+                            ? brainFlowSessionProfile.brainFlowInputParams.serial_number
+                            : brainFlowSessionProfile.deviceSerialNumber;
                     break;
                 case BoardIds.IRONBCI_BOARD:
                     break;
                 case BoardIds.GFORCE_PRO_BOARD:
                     break;
                 case BoardIds.FREEEEG32_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_port =
+                        "COM" + brainFlowSessionProfile.serialPortNumber;
                     break;
                 case BoardIds.BRAINBIT_BLED_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_port =
+                        "COM" + brainFlowSessionProfile.serialPortNumber;
+                    brainFlowSessionProfile.brainFlowInputParams.mac_address = brainFlowSessionProfile.macAddress == "" ? 
+                        brainFlowSessionProfile.brainFlowInputParams.mac_address : brainFlowSessionProfile.macAddress;
                     break;
                 case BoardIds.GFORCE_DUAL_BOARD:
                     break;
                 case BoardIds.GALEA_SERIAL_BOARD:
                     break;
                 case BoardIds.MUSE_S_BLED_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_port =
+                        "COM" + brainFlowSessionProfile.serialPortNumber;
+                    brainFlowSessionProfile.brainFlowInputParams.serial_number =
+                        brainFlowSessionProfile.deviceSerialNumber == ""
+                            ? brainFlowSessionProfile.brainFlowInputParams.serial_number
+                            : brainFlowSessionProfile.deviceSerialNumber;
                     break;
                 case BoardIds.MUSE_2_BLED_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.serial_port =
@@ -125,6 +197,10 @@ namespace BrainFlowToolbox.Runtime.Utilities
                         brainFlowSessionProfile.deviceDiscoveryTimeout; 
                     break;
                 case BoardIds.CROWN_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.serial_number =
+                        brainFlowSessionProfile.deviceSerialNumber == ""
+                            ? brainFlowSessionProfile.brainFlowInputParams.serial_number
+                            : brainFlowSessionProfile.deviceSerialNumber;
                     break;
                 case BoardIds.ANT_NEURO_EE_410_BOARD:
                     break;
@@ -153,6 +229,8 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 case BoardIds.ANT_NEURO_EE_225_BOARD:
                     break;
                 case BoardIds.ENOPHONE_BOARD:
+                    brainFlowSessionProfile.brainFlowInputParams.mac_address = brainFlowSessionProfile.macAddress == "" ? 
+                        brainFlowSessionProfile.brainFlowInputParams.mac_address : brainFlowSessionProfile.macAddress;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
