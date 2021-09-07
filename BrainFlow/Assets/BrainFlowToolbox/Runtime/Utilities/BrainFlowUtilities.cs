@@ -70,7 +70,14 @@ namespace BrainFlowToolbox.Runtime.Utilities
                     break;
                 case BoardIds.STREAMING_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress;
-                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    try
+                    {
+                        brainFlowSessionProfile.brainFlowInputParams.ip_port = Int32.Parse(brainFlowSessionProfile.ipPort);
+                    }
+                    catch (FormatException e)
+                    {
+                        Debug.Log("Cannot parse string ipPort into an int");
+                    }
                     brainFlowSessionProfile.brainFlowInputParams.other_info = brainFlowSessionProfile.otherInfo;
                     break;
                 case BoardIds.SYNTHETIC_BOARD:
@@ -96,21 +103,42 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 case BoardIds.GANGLION_WIFI_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress == "" ? 
                         "192.168.4.1" : brainFlowSessionProfile.ipAddress;
-                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    try
+                    {
+                        brainFlowSessionProfile.brainFlowInputParams.ip_port = Int32.Parse(brainFlowSessionProfile.ipPort);
+                    }
+                    catch (FormatException e)
+                    {
+                        Debug.Log("Cannot parse string ipPort into an int");
+                    }
                     brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
                         10 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.CYTON_WIFI_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress == "" ? 
                         "192.168.4.1" : brainFlowSessionProfile.ipAddress;
-                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    try
+                    {
+                        brainFlowSessionProfile.brainFlowInputParams.ip_port = Int32.Parse(brainFlowSessionProfile.ipPort);
+                    }
+                    catch (FormatException e)
+                    {
+                        Debug.Log("Cannot parse string ipPort into an int");
+                    }
                     brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
                         10 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
                 case BoardIds.CYTON_DAISY_WIFI_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.ip_address = brainFlowSessionProfile.ipAddress == "" ? 
                         "192.168.4.1" : brainFlowSessionProfile.ipAddress;
-                    brainFlowSessionProfile.brainFlowInputParams.ip_port = brainFlowSessionProfile.ipPort;
+                    try
+                    {
+                        brainFlowSessionProfile.brainFlowInputParams.ip_port = Int32.Parse(brainFlowSessionProfile.ipPort);
+                    }
+                    catch (FormatException e)
+                    {
+                        Debug.Log("Cannot parse string ipPort into an int");
+                    }
                     brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
                         10 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
