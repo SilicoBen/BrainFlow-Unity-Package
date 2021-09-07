@@ -31,20 +31,21 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public Color graphBarColor;
         public Color graphLineColor;
         public Color graphPointColor;
-        
-
         // Created at Runtime
-        public VisualizationType visualizationType;
-        public float thickness;
-        public BoardShim boardShim;
-        public BrainFlowInputParams brainFlowInputParams;
-        public Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> dataManagers;
         public GameObject dataDashboard;
         public int numberOfDataPoints;
         public float yMaxValue;
         public RectTransform dataContainer;
+        public VisualizationType visualizationType;
+        public float thickness;
+        
+        // Created @ Runtime
+        public double samplingRate;
+        public int numberOfSeconds;
+        public BoardShim boardShim;
+        public BrainFlowInputParams brainFlowInputParams;
+        public Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> dataManagers;
         public double[,] boardData;
-        public double[,] boardDataT;
 
     }
 }

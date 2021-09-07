@@ -161,6 +161,7 @@ namespace BrainFlowToolbox.Runtime.Utilities
             brainFlowSessionProfile.boardShim = new BoardShim((int)brainFlowSessionProfile.board,
                 brainFlowSessionProfile.brainFlowInputParams);
             
+            brainFlowSessionProfile.samplingRate = BoardShim.get_sampling_rate((int)brainFlowSessionProfile.board);
             return brainFlowSessionProfile.boardShim;
         }
         public static void StartSession(BrainFlowSessionProfile brainFlowSessionProfile)

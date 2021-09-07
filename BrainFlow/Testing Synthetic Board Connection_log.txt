@@ -1269,3 +1269,117 @@
 [2021-09-07 15:01:51.636] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
 [2021-09-07 15:01:51.923] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
 [2021-09-07 15:01:52.007] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 15:48:08.939] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 15:48:08.939] [board_logger] [trace] Board object created -1
+[2021-09-07 15:48:08.939] [board_logger] [trace] prepare session
+[2021-09-07 15:48:08.955] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 15:48:09.199] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 15:48:09.274] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 16:35:53.065] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 16:35:53.065] [board_logger] [trace] Board object created -1
+[2021-09-07 16:35:53.065] [board_logger] [trace] prepare session
+[2021-09-07 16:35:53.080] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 16:35:53.476] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 16:35:53.556] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 16:39:11.846] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 16:39:11.846] [board_logger] [trace] Board object created -1
+[2021-09-07 16:39:11.846] [board_logger] [trace] prepare session
+[2021-09-07 16:39:11.863] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 16:39:12.112] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 16:39:12.192] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 16:39:34.897] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 16:39:34.897] [board_logger] [trace] Board object created -1
+[2021-09-07 16:39:34.897] [board_logger] [trace] prepare session
+[2021-09-07 16:39:34.913] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 16:39:35.192] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 16:39:35.274] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:14:35.024] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:14:35.024] [board_logger] [trace] Board object created -1
+[2021-09-07 17:14:35.024] [board_logger] [trace] prepare session
+[2021-09-07 17:14:35.040] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:14:35.294] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:14:35.369] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:19:24.818] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:19:24.818] [board_logger] [trace] Board object created -1
+[2021-09-07 17:19:24.818] [board_logger] [trace] prepare session
+[2021-09-07 17:19:24.836] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:19:25.119] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:19:25.223] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:20:43.762] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:20:43.762] [board_logger] [trace] Board object created -1
+[2021-09-07 17:20:43.762] [board_logger] [trace] prepare session
+[2021-09-07 17:20:43.779] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:20:44.031] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:20:44.111] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:22:15.405] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:22:15.405] [board_logger] [trace] Board object created -1
+[2021-09-07 17:22:15.405] [board_logger] [trace] prepare session
+[2021-09-07 17:22:15.421] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:22:15.671] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:22:15.747] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:25:51.194] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:25:51.195] [board_logger] [trace] Board object created -1
+[2021-09-07 17:25:51.195] [board_logger] [trace] prepare session
+[2021-09-07 17:25:51.211] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:25:51.467] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:25:51.539] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:28:53.352] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:28:53.352] [board_logger] [trace] Board object created -1
+[2021-09-07 17:28:53.352] [board_logger] [trace] prepare session
+[2021-09-07 17:28:53.369] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:28:53.613] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:28:53.688] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:30:20.817] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:30:20.817] [board_logger] [trace] Board object created -1
+[2021-09-07 17:30:20.817] [board_logger] [trace] prepare session
+[2021-09-07 17:30:20.837] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:30:21.093] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:30:21.168] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:31:37.352] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:31:37.352] [board_logger] [trace] Board object created -1
+[2021-09-07 17:31:37.352] [board_logger] [trace] prepare session
+[2021-09-07 17:31:37.369] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:31:37.636] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:31:37.725] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:33:09.270] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:33:09.270] [board_logger] [trace] Board object created -1
+[2021-09-07 17:33:09.270] [board_logger] [trace] prepare session
+[2021-09-07 17:33:09.285] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:33:09.537] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:33:09.612] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:37:07.853] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:37:07.853] [board_logger] [trace] Board object created -1
+[2021-09-07 17:37:07.853] [board_logger] [trace] prepare session
+[2021-09-07 17:37:07.874] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:37:08.235] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:37:08.318] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:38:20.627] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:38:20.627] [board_logger] [trace] Board object created -1
+[2021-09-07 17:38:20.627] [board_logger] [trace] prepare session
+[2021-09-07 17:38:20.643] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:38:20.910] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:38:20.986] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:40:15.159] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:40:15.159] [board_logger] [trace] Board object created -1
+[2021-09-07 17:40:15.159] [board_logger] [trace] prepare session
+[2021-09-07 17:40:15.176] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:40:15.431] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:40:15.507] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:40:54.781] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 17:40:54.781] [board_logger] [trace] Board object created -1
+[2021-09-07 17:40:54.781] [board_logger] [trace] prepare session
+[2021-09-07 17:40:54.799] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 17:40:55.079] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 17:40:55.159] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 18:01:19.753] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 18:01:19.753] [board_logger] [trace] Board object created -1
+[2021-09-07 18:01:19.753] [board_logger] [trace] prepare session
+[2021-09-07 18:01:19.769] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 18:01:20.015] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 18:01:20.093] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 18:03:36.511] [board_logger] [info] incoming json: {"file":"","ip_address":"","ip_port":0,"ip_protocol":0,"mac_address":"","other_info":"","serial_number":"","serial_port":"","timeout":0}
+[2021-09-07 18:03:36.511] [board_logger] [trace] Board object created -1
+[2021-09-07 18:03:36.511] [board_logger] [trace] prepare session
+[2021-09-07 18:03:36.528] [board_logger] [trace] File Streamer, file: Testing Synthetic Board Connection .csv, mods: w
+[2021-09-07 18:03:36.798] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null
+[2021-09-07 18:03:36.879] [board_logger] [error] [json.exception.type_error.302] type must be array, but is null

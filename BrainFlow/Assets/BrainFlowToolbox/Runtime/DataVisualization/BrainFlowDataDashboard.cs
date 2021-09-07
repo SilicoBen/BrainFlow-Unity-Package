@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using brainflow;
 using BrainFlowToolbox.Runtime.DataModels.Enumerators;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using TMPro;
@@ -17,11 +18,19 @@ public class BrainFlowDataDashboard : MonoBehaviour
     public RectTransform dataContainer;
     public Slider thickness;
     public TextMeshProUGUI thicknessText;
+    public BrainFlowDataContainer brainFlowDataContainer;
+    public List<DashBoardButtonManager> buttons;
+
 
     public void Initialize(BrainFlowSessionProfile brainFlowSession)
     {
         brainFlowSessionProfile = brainFlowSession;
         brainFlowSessionProfile.dataContainer = dataContainer;
+        brainFlowDataContainer.Initialize(brainFlowSession);
+        foreach (var b in buttons)
+        {
+            b.Initialize(brainFlowSessionProfile);
+        }
         initialized = true;
     }
     
@@ -33,8 +42,28 @@ public class BrainFlowDataDashboard : MonoBehaviour
         titleText.text = "Displaying " + brainFlowSessionProfile.displayData + " Data Streams";
         brainFlowSessionProfile.numberOfDataPoints = (int) xScale.value;
         brainFlowSessionProfile.yMaxValue = yScale.value * 1000;
+        
     }
 
+    // private void UpdateLabels()
+    // {
+    //     numberOfSeconds = (int) (brainFlowSessionProfile.numberOfDataPoints / brainFlowSessionProfile.samplingRate);
+    //     while (xLabels.Count < numberOfSeconds)
+    //     {
+    //         var newSecondMarker = new GameObject();
+    //     }
+    // }
+    //
+    // private void CreateLabelObjects()
+    // {
+    //     while (xLabels.Count < numberOfSeconds)
+    //     {
+    //         var newDataBar = new GameObject("Second Bar: " + xLabels.Count, typeof(Image));
+    //         newDataBar.transform.SetParent(dataContainer, false);
+    //         
+    //     }
+    // }
+    
     public void ChangeGraphType(string type)
     {
         brainFlowSessionProfile.visualizationType = type switch
