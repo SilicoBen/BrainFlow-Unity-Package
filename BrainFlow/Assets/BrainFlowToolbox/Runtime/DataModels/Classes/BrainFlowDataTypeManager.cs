@@ -4,7 +4,7 @@ using brainflow;
 using BrainFlowToolbox.Runtime.DataModels.Enumerators;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using BrainFlowToolbox.Runtime.DataStreaming;
-using BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming;
+using BrainFlowToolbox.Runtime.DataVisualization;
 using BrainFlowToolbox.Runtime.Managers;
 using UnityEngine;
 

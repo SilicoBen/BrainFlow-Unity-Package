@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using brainflow.math;
 using BrainFlowToolbox.Runtime.DataModels.Classes;
-using BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming;
 using TMPro;
 using UnityEngine;
 using System.Linq;
+using BrainFlowToolbox.Runtime.DataVisualization;
 
 namespace BrainFlowToolbox.Runtime.DataStreaming
 {

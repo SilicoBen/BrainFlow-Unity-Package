@@ -238,8 +238,8 @@ namespace BrainFlowToolbox.Editor
             EditorGUILayout.PropertyField(serializedObject.FindProperty("boardDataFileName"));
             
             GUILayout.Space(10);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("createDataDashboard"));
-            if (sessionProfile.createDataDashboard)
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("showData"));
+            if (sessionProfile.showData)
             {
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("displayData"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("graphBackgroundColor"));

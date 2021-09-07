@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using brainflow;
 using BrainFlowToolbox.Runtime.DataModels.Enumerators;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
+using BrainFlowToolbox.Runtime.DataVisualization;
 using BrainFlowToolbox.Runtime.Utilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,9 +23,18 @@ namespace BrainFlowToolbox.Runtime.Managers
         {
             if (brainFlowSessionProfile.boardShim == null) return;
             brainFlowSessionProfile.boardData = brainFlowSessionProfile.boardShim.get_board_data();
-            if (currentDataCanvas == brainFlowSessionProfile.displayData) return;
-            BrainFlowUtilities.UpdateDataCanvas(brainFlowSessionProfile);
-            currentDataCanvas = brainFlowSessionProfile.displayData;
+            if (brainFlowSessionProfile.showData)
+            {
+                brainFlowSessionProfile.dataDashboard.SetActive(true);
+                if (currentDataCanvas == brainFlowSessionProfile.displayData) return;
+                BrainFlowUtilities.UpdateDataCanvas(brainFlowSessionProfile);
+                currentDataCanvas = brainFlowSessionProfile.displayData;
+            }
+            else
+            {
+                brainFlowSessionProfile.dataDashboard.SetActive(false);
+            }
+            
             
         }
     
@@ -49,7 +59,8 @@ namespace BrainFlowToolbox.Runtime.Managers
                 BoardShim.disable_board_logger();
                 BoardShim.set_log_file(brainFlowSessionProfile.boardDataFileName + "_log.txt");
                 BoardShim.enable_dev_board_logger();
-                brainFlowSessionProfile.dataDashboard = GameObject.Find("DataDashboard") ?? (GameObject) Instantiate(Resources.Load("Prefabs/DataDashboard"), transform);
+                brainFlowSessionProfile.dataDashboard = GameObject.Find("DataDashboard") ?? (GameObject) Instantiate(Resources.Load("Prefabs/DataDashboard"), brainFlowSessionProfile.sessionGameObject.transform);
+                brainFlowSessionProfile.dataDashboard.name = "Data Dashboard";
                 brainFlowSessionProfile.dataDashboard.GetComponent<BrainFlowDataDashboard>().Initialize(brainFlowSessionProfile);
                 BrainFlowUtilities.CreateBoardShim(brainFlowSessionProfile);
                 BrainFlowUtilities.StartSession(brainFlowSessionProfile);

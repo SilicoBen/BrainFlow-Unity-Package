@@ -41,6 +41,8 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public float thickness;
         
         // Created @ Runtime
+        public GameObject sessionGameObject;
+        public bool showData;
         public double samplingRate;
         public int numberOfSeconds;
         public BoardShim boardShim;

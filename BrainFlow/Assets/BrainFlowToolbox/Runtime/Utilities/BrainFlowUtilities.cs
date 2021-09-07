@@ -5,7 +5,7 @@ using BrainFlowToolbox.Runtime.DataModels.Classes;
 using BrainFlowToolbox.Runtime.DataModels.Enumerators;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using BrainFlowToolbox.Runtime.DataStreaming;
-using BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming;
+using BrainFlowToolbox.Runtime.DataVisualization;
 using UnityEngine;
 
 namespace BrainFlowToolbox.Runtime.Utilities
@@ -13,6 +13,7 @@ namespace BrainFlowToolbox.Runtime.Utilities
     public static class BrainFlowUtilities
     {
         private static BoardShim boardShim;
+        public static GameObject dataStreamerContainer;
         private static Dictionary<BrainFlowDataType, GameObject> dataCanvases;
         private static Dictionary<BrainFlowDataType, GameObject> dataStreamers;
         private static GameObject activeDataCanvas;
@@ -336,10 +337,19 @@ namespace BrainFlowToolbox.Runtime.Utilities
         }
         public static void CreateChannelStreamers(BrainFlowDataTypeManager dataManager)
         {
+
+            if (!dataStreamerContainer)
+            {
+                dataStreamerContainer = new GameObject("Data Streamers");
+                dataStreamerContainer.transform.SetParent(dataManager.sessionProfile.sessionGameObject.transform);
+            }
+            
+            
             if (!dataManager.dataStreamersContainer)
             {
                 dataManager.dataStreamersContainer =
-                    new GameObject(dataManager.dataType + " Data Streamers");
+                    new GameObject(dataManager.dataType + " Channel Streamers");
+                dataManager.dataStreamersContainer.transform.SetParent(dataStreamerContainer.transform);
                 dataManager.dataStreamersContainer.SetActive(false);
             }
             

@@ -22,6 +22,7 @@ MonoBehaviour:
   ipAddress: 
   ipPort: 
   macAddress: 
+  otherInfo: 
   deviceDiscoveryTimeout: 0
   createDataDashboard: 1
   displayData: 0
@@ -30,10 +31,12 @@ MonoBehaviour:
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
   dataDashboard: {fileID: 0}
-  numberOfDataPoints: 250
+  numberOfDataPoints: 847
   yMaxValue: 12500
   dataContainer: {fileID: 0}
   visualizationType: 0
   thickness: 0.5
+  sessionGameObject: {fileID: 0}
+  showData: 1
   samplingRate: 250
-  numberOfSeconds: 1
+  numberOfSeconds: 3
