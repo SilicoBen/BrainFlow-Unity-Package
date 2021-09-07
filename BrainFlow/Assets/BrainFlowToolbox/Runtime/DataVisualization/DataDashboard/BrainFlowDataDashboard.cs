@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using TMPro;
@@ -38,7 +39,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
             thicknessText.text = brainFlowSessionProfile.visualizationType + " Thickness";
             brainFlowSessionProfile.thickness = thickness.value;
             titleText.text = "Displaying " + brainFlowSessionProfile.displayData + " Data Streams";
-            brainFlowSessionProfile.numberOfDataPoints = (int) xScale.value;
+            brainFlowSessionProfile.numberOfDataPoints =  Mathf.RoundToInt(xScale.value);
             brainFlowSessionProfile.yMaxValue = yScale.value * 1000;
         
         }

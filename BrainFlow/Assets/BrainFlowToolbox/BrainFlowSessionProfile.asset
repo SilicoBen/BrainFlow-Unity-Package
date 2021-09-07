@@ -31,7 +31,7 @@ MonoBehaviour:
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
   dataDashboard: {fileID: 0}
-  numberOfDataPoints: 847
+  numberOfDataPoints: 497
   yMaxValue: 12500
   dataContainer: {fileID: 0}
   visualizationType: 0
@@ -39,4 +39,4 @@ MonoBehaviour:
   sessionGameObject: {fileID: 0}
   showData: 1
   samplingRate: 250
-  numberOfSeconds: 3
+  numberOfSeconds: 1
