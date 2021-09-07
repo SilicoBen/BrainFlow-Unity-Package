@@ -43,6 +43,8 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public int numberOfDataPoints;
         public float yMaxValue;
         public RectTransform dataContainer;
+        public double[,] boardData;
+        public double[,] boardDataT;
 
     }
 }

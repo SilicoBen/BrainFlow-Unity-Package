@@ -15,7 +15,6 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
         private CanvasScaler canvasScaler;
         private RectTransform canvasRect;
         private GridLayoutGroup gridLayoutGroup;
-        private readonly TMP_DefaultControls.Resources uiResources = new TMP_DefaultControls.Resources();
         private List<GameObject> dataStreamVisualizers = new List<GameObject>();
         public RectTransform dataCanvasRect;
         public float yInterval;
@@ -27,7 +26,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             var size = canvasRect.sizeDelta;
             transform.localPosition = Vector3.zero;
             dataManager.yInterval = size.y / (dataManager.numberOfChannels + 1);
-            dataManager.xInterval = (size.x-10) / (dataManager.sessionProfile.numberOfDataPoints+1);
+            dataManager.xInterval = (size.x*0.8f) / (dataManager.sessionProfile.numberOfDataPoints+1);
             dataCanvasRect.sizeDelta = dataManager.sessionProfile.dataContainer.sizeDelta;
             dataManager.dataCanvasRect = dataCanvasRect;
             // gridLayoutGroup.constraintCount = dataManager.numberOfChannels;

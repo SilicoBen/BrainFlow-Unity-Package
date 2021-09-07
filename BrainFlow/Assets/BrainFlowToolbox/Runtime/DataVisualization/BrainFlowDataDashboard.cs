@@ -9,8 +9,8 @@ using UnityEngine.UI;
 
 public class BrainFlowDataDashboard : MonoBehaviour
 {
-    public Scrollbar xScale;
-    public Scrollbar yScale;
+    public Slider xScale;
+    public Slider yScale;
     public TextMeshProUGUI titleText;
     public BrainFlowSessionProfile brainFlowSessionProfile;
     public bool initialized;
@@ -22,9 +22,6 @@ public class BrainFlowDataDashboard : MonoBehaviour
     {
         brainFlowSessionProfile = brainFlowSession;
         brainFlowSessionProfile.dataContainer = dataContainer;
-        yScale.direction = Scrollbar.Direction.TopToBottom;
-        yScale.value = 0.5f;
-        xScale.value = 0.1f;
         initialized = true;
     }
     
@@ -34,8 +31,8 @@ public class BrainFlowDataDashboard : MonoBehaviour
         thicknessText.text = brainFlowSessionProfile.visualizationType + " Thickness";
         brainFlowSessionProfile.thickness = thickness.value;
         titleText.text = "Displaying " + brainFlowSessionProfile.displayData + " Data Streams";
-        brainFlowSessionProfile.numberOfDataPoints =Mathf.Max (1, (int) (xScale.value*100f));
-        brainFlowSessionProfile.yMaxValue = Mathf.Max (yScale.value*10000f, 0.05f);
+        brainFlowSessionProfile.numberOfDataPoints = (int) xScale.value;
+        brainFlowSessionProfile.yMaxValue = yScale.value * 1000;
     }
 
     public void ChangeGraphType(string type)

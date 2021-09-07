@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using brainflow.math;
 using BrainFlowToolbox.Runtime.DataModels.Classes;
 using BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming;
 using TMPro;
 using UnityEngine;
+using System.Linq;
 
 namespace BrainFlowToolbox.Runtime.DataStreaming
 {
@@ -33,16 +35,18 @@ namespace BrainFlowToolbox.Runtime.DataStreaming
         {
             if(!streaming) return;
 
-            var newData = dataManager.boardShim.get_current_board_data(1)[channelID, 0];
-            channelData.Add(newData);
+            if (dataManager.sessionProfile.boardData == null) return;
+            var data = dataManager.sessionProfile.boardData;
+            channelData.AddRange(data.GetRow(channelID));
+            
 
-            if (channelData.Count <= dataManager.dataRange)
+            if (channelData.Count <= dataManager.sessionProfile.numberOfDataPoints)
             {
                 dataManager.ChannelData[channelID] = channelData;
                 return;
             }
             
-            channelData = channelData.GetRange(1, dataManager.dataRange);
+            channelData = channelData.GetRange(channelData.Count - 1 - dataManager.sessionProfile.numberOfDataPoints, dataManager.sessionProfile.numberOfDataPoints);
             dataManager.ChannelData[channelID] = channelData;
         }
         

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BrainFlowToolbox.Runtime.DataModels.Classes;
 using BrainFlowToolbox.Runtime.DataStreaming;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,22 +24,34 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
         private int currentDataTotal;
         public List<double> graphData = new List<double>();
         public float graphHeight;
-        
+        public float maxDataValue;
+        public GameObject channelTextGO;
+        public TextMeshProUGUI channelName;
+        private readonly TMP_DefaultControls.Resources uiResources = new TMP_DefaultControls.Resources();
 
         public void Initialize(BrainFlowDataTypeManager manager, int channel)
         {
             dataManager = manager;
             channelID = channel;
             graphIndex = Array.FindIndex(dataManager.channelIds, c =>  c == channelID);
+            graphIndex = dataManager.channelIds.Length - 1 - graphIndex;
             graphCanvas = gameObject.AddComponent<Canvas>();
             canvasImage = gameObject.AddComponent<Image>();
             graphRect = gameObject.GetComponent<RectTransform>();
+            channelTextGO = TMP_DefaultControls.CreateText(uiResources);
+            channelName = channelTextGO.GetComponent<TextMeshProUGUI>();
+            channelTextGO.transform.SetParent(transform);
+            var textRect = channelTextGO.GetComponent<RectTransform>();
+            textRect.anchorMin = new Vector2(0,0.5f);
+            textRect.anchorMax = new Vector2(0, 0.5f);
+            textRect.pivot = new Vector2(0.5f, 0.5f);
+            channelName.text = "CH" + channel;
+            
             dataCanvasRect = manager.channelCanvas.dataCanvasRect;
             graphRect.anchorMin = new Vector2(0.5f, 0);
             graphRect.anchorMax = new Vector2(0.5f, 0);
             graphRect.pivot = new Vector2(0.5f, 0.5f);
             channelCanvas = dataManager.channelCanvas;
-            graphRect.sizeDelta = new Vector2(dataCanvasRect.sizeDelta.x, channelCanvas.yInterval * 0.9f);
             initialized = true;
         }
 
@@ -46,15 +60,16 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             if (!initialized) return;
             dataManager.dataRange = dataManager.sessionProfile.numberOfDataPoints;
             dataCanvasRect = dataManager.dataCanvasRect;
-            var dataCanvasSize = dataCanvasRect.sizeDelta;
-            graphRect.sizeDelta = new Vector2(dataCanvasSize.x, dataManager.yInterval * 0.9f);
+            var sizeDelta = dataCanvasRect.sizeDelta;
+            var dataCanvasSize = sizeDelta;
+            graphRect.sizeDelta = new Vector2(dataCanvasSize.x*0.8f, dataManager.yInterval * 0.95f);
             canvasImage.color = dataManager.sessionProfile.graphBackgroundColor;
-            var dataCanvasSizeDelta = dataCanvasRect.sizeDelta;
             graphRect.anchoredPosition = new Vector2(0, (graphIndex+1)*dataManager.yInterval + 10);
             //Debug.Log("Graph Rect: " + graphRect + " Graph Index: " + graphIndex + "Graph Rect: " + 
             CreateGraphObjects();
-            graphHeight = dataCanvasSizeDelta.y;
             graphData =  dataManager.ChannelData[channelID];
+            graphHeight = sizeDelta.y;
+            maxDataValue = graphData.Count > 0 ? (float)graphData.Max() : 0;
         }
         
         private void CreateGraphObjects()

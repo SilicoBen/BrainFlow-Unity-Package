@@ -8,7 +8,6 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
 {
     public class BrainFlowDataPointManager : MonoBehaviour
     {
-        [FormerlySerializedAs("brainFlowSingleChannelDataStreamVisualizer")] public BrainFlowChannelVisualizer brainFlowChannelVisualizer;
         public RectTransform graphRect;
         public int dataId;
         private float xPosition;
@@ -24,7 +23,6 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
         {
             channelVisualizer = graph;
             dataManager = graph.dataManager;
-            brainFlowChannelVisualizer = graph;
             graphRect = graph.graphRect;
             dataId = dataIndex;
             
@@ -42,9 +40,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
             
             var xInterval = dataManager.xInterval;
             var yScaling = channelVisualizer.graphHeight / dataManager.sessionProfile.yMaxValue;
-            
-            
-    
+
             switch (dataManager.sessionProfile.visualizationType)
             {
                 case DataModels.Enumerators.VisualizationType.Line:
@@ -55,11 +51,11 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
                     else
                     {
                         barLineImage.enabled = true;
-                        var dataPoint = new Vector2((dataId+1)*xInterval, (float) brainFlowChannelVisualizer.graphData[dataId]* yScaling);
-                        var nextDataPoint = new Vector2((dataId+2)*xInterval, (float) brainFlowChannelVisualizer.graphData[dataId+1]* yScaling);
+                        var dataPoint = new Vector2((dataId)*xInterval, (float) channelVisualizer.graphData[dataId]* yScaling);
+                        var nextDataPoint = new Vector2((dataId+1)*xInterval, (float) channelVisualizer.graphData[dataId+1]* yScaling);
                         var direction = (nextDataPoint - dataPoint).normalized;
                         var distance = Vector2.Distance(dataPoint, nextDataPoint);
-                        barLineRect.sizeDelta = new Vector2(distance, dataManager.sessionProfile.thickness);
+                        barLineRect.sizeDelta = new Vector2(distance, dataManager.sessionProfile.thickness*3);
                         barLineRect.anchorMin = new Vector2(0, 0.5f);
                         barLineRect.anchorMax = new Vector2(0, 0.5f);
                         barLineRect.anchoredPosition = dataPoint + direction * (distance * 0.5f);
@@ -75,7 +71,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization.ChannelDataStreaming
                     }
                     else
                     {
-                        dataValue = (float) brainFlowChannelVisualizer.graphData[dataId];
+                        dataValue = (float) channelVisualizer.graphData[dataId];
                         var dataPoint = new Vector2((dataId+1)*xInterval, (float) dataValue* yScaling);
                         barLineImage.enabled = true;
 

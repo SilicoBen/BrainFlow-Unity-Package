@@ -28,5 +28,6 @@ namespace BrainFlowToolbox.Runtime.DataModels.Classes
         public RectTransform dataCanvasRect;
         public float xInterval;
         public float yInterval;
+        
     }
 }

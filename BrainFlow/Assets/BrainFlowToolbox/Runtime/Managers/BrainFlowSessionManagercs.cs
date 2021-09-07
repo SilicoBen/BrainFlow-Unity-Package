@@ -16,14 +16,16 @@ namespace BrainFlowToolbox.Runtime.Managers
         public GameObject dataDashboard;
         public GameObject eventSystem;
         public BrainFlowDataType currentDataCanvas;
+        private BoardShim boardShim;
         
         private void Update()
         {
             if (brainFlowSessionProfile.boardShim == null) return;
+            brainFlowSessionProfile.boardData = brainFlowSessionProfile.boardShim.get_board_data();
             if (currentDataCanvas == brainFlowSessionProfile.displayData) return;
             BrainFlowUtilities.UpdateDataCanvas(brainFlowSessionProfile);
             currentDataCanvas = brainFlowSessionProfile.displayData;
-
+            
         }
     
         public void StartSession(BrainFlowSessionProfile sessionProfile)
@@ -52,6 +54,7 @@ namespace BrainFlowToolbox.Runtime.Managers
                 BrainFlowUtilities.CreateBoardShim(brainFlowSessionProfile);
                 BrainFlowUtilities.StartSession(brainFlowSessionProfile);
                 BrainFlowUtilities.UpdateDataCanvas(brainFlowSessionProfile);
+                boardShim = brainFlowSessionProfile.boardShim;
                 streaming = true;
                
             }
@@ -66,6 +69,28 @@ namespace BrainFlowToolbox.Runtime.Managers
         
         private void OnDestroy()
         {
+            BoardShim.disable_board_logger();
+            
+            if (boardShim == null)
+            {
+                Debug.Log("BrainFlow: Tried to end Session, but no Session was found!");
+                return;
+            }
+            try
+            {
+                if (boardShim != null)
+                {
+                    boardShim.stop_stream();
+                    boardShim.release_session();
+                }
+                
+                Debug.Log("BrainFlow: Session has Ended");
+            }
+            catch (BrainFlowException e)
+            {
+                Debug.Log(e);
+                Debug.Log("BrainFlow: Could Not Release Session");
+            }
             BrainFlowUtilities.EndSession();
         }
     }
