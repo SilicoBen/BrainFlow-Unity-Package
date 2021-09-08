@@ -66,7 +66,10 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
             graphRect.anchoredPosition = new Vector2(0, (graphIndex+1)*dataManager.yInterval + 10);
             //Debug.Log("Graph Rect: " + graphRect + " Graph Index: " + graphIndex + "Graph Rect: " + 
             CreateGraphObjects();
-            graphData =  dataManager.ChannelData[channelID];
+            graphData = dataManager.ChannelData[channelID].Count <= dataManager.sessionProfile.numberOfDataPoints ? 
+                dataManager.ChannelData[channelID] : 
+                dataManager.ChannelData[channelID].GetRange(dataManager.ChannelData[channelID].Count - 1 - dataManager.sessionProfile.numberOfDataPoints, dataManager.sessionProfile.numberOfDataPoints);
+            //channelData.GetRange(channelData.Count - 1 - dataManager.sessionProfile.bufferSize, dataManager.sessionProfile.numberOfDataPoints);
             graphHeight = sizeDelta.y;
             maxDataValue = graphData.Count > 0 ? (float)graphData.Max() : 0;
         }
@@ -76,6 +79,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
             while (currentDataTotal < dataManager.dataRange)
             {
                 var newDataBar = new GameObject("Data Bar: " + currentDataTotal, typeof(Image));
+                newDataBar.GetComponent<Image>().enabled = false;
                 newDataBar.transform.SetParent(graphRect, false);
                 newDataBar.AddComponent<BrainFlowDataPointManager>().Initialize(this, currentDataTotal);
                 currentDataTotal++;

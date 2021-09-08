@@ -27,9 +27,9 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
             if (!initialized) return;
             brainFlowSessionProfile.numberOfSeconds = (int) (brainFlowSessionProfile.numberOfDataPoints / brainFlowSessionProfile.samplingRate);
 
-            Debug.Log("Sampling Rate = " + brainFlowSessionProfile.samplingRate +
-                      " Number Of Data Points = " +  brainFlowSessionProfile.numberOfDataPoints + 
-                      " Number Of Seconds = " +  brainFlowSessionProfile.numberOfSeconds);
+            // Debug.Log("Sampling Rate = " + brainFlowSessionProfile.samplingRate +
+            //           " Number Of Data Points = " +  brainFlowSessionProfile.numberOfDataPoints + 
+            //           " Number Of Seconds = " +  brainFlowSessionProfile.numberOfSeconds);
         
         
             while (xLabels.Count < brainFlowSessionProfile.numberOfSeconds * 2)

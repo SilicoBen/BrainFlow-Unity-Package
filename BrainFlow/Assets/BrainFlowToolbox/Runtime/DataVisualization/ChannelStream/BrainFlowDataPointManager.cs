@@ -50,8 +50,8 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
                     else
                     {
                         barLineImage.enabled = true;
-                        var dataPoint = new Vector2((dataId)*xInterval, (float) channelVisualizer.graphData[dataId]* yScaling);
-                        var nextDataPoint = new Vector2((dataId+1)*xInterval, (float) channelVisualizer.graphData[dataId+1]* yScaling);
+                        var dataPoint = new Vector2((dataId+1)*xInterval, (float) channelVisualizer.graphData[dataId]* yScaling);
+                        var nextDataPoint = new Vector2((dataId+2)*xInterval, (float) channelVisualizer.graphData[dataId+1]* yScaling);
                         var direction = (nextDataPoint - dataPoint).normalized;
                         var distance = Vector2.Distance(dataPoint, nextDataPoint);
                         barLineRect.sizeDelta = new Vector2(distance, dataManager.sessionProfile.thickness*3);

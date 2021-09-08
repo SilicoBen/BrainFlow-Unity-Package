@@ -15,7 +15,7 @@ MonoBehaviour:
   board: -1
   sessionName: BrainFlowSessionProfile
   boardDataFileName: Testing Synthetic Board Connection
-  bufferSize: 450000
+  bufferSize: 45000
   serialPortNumber: 0
   deviceSerialNumber: 
   playbackFilePath: 
@@ -25,18 +25,18 @@ MonoBehaviour:
   otherInfo: 
   deviceDiscoveryTimeout: 0
   createDataDashboard: 1
-  displayData: 0
-  graphBackgroundColor: {r: 0, g: 0, b: 0, a: 0.8}
-  graphBarColor: {r: 0.73112255, g: 1, b: 0.627451, a: 1}
+  displayData: 1
+  graphBackgroundColor: {r: 0, g: 0, b: 0, a: 0.827451}
+  graphBarColor: {r: 0.47843134, g: 1, b: 0.85865307, a: 1}
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
   dataDashboard: {fileID: 0}
-  numberOfDataPoints: 497
+  numberOfDataPoints: 679
   yMaxValue: 12500
   dataContainer: {fileID: 0}
   visualizationType: 0
-  thickness: 0.5
+  thickness: 0.47142902
   sessionGameObject: {fileID: 0}
   showData: 1
   samplingRate: 250
-  numberOfSeconds: 1
+  numberOfSeconds: 2

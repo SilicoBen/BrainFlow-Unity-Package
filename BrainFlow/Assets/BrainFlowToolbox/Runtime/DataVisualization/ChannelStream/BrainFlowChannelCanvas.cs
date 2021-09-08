@@ -25,7 +25,7 @@ namespace BrainFlowToolbox.Runtime.DataVisualization
             var size = canvasRect.sizeDelta;
             transform.localPosition = Vector3.zero;
             dataManager.yInterval = size.y / (dataManager.numberOfChannels + 1);
-            dataManager.xInterval = (size.x*0.8f) / (dataManager.sessionProfile.numberOfDataPoints+1);
+            dataManager.xInterval = (size.x*0.8f) / (dataManager.sessionProfile.numberOfDataPoints);
             dataCanvasRect.sizeDelta = dataManager.sessionProfile.dataContainer.sizeDelta;
             dataManager.dataCanvasRect = dataCanvasRect;
             // gridLayoutGroup.constraintCount = dataManager.numberOfChannels;

@@ -40,13 +40,13 @@ namespace BrainFlowToolbox.Runtime.DataStreaming
             channelData.AddRange(data.GetRow(channelID));
             
 
-            if (channelData.Count <= dataManager.sessionProfile.numberOfDataPoints)
+            if (channelData.Count <= dataManager.sessionProfile.bufferSize)
             {
                 dataManager.ChannelData[channelID] = channelData;
                 return;
             }
             
-            channelData = channelData.GetRange(channelData.Count - 1 - dataManager.sessionProfile.numberOfDataPoints, dataManager.sessionProfile.numberOfDataPoints);
+            channelData = channelData.GetRange(channelData.Count - 1 - dataManager.sessionProfile.bufferSize, dataManager.sessionProfile.numberOfDataPoints);
             dataManager.ChannelData[channelID] = channelData;
         }
         
