@@ -44,6 +44,7 @@ namespace BrainFlowToolbox.Editor
             {
                 if (EditorApplication.isPlaying)
                 {
+                    if (GameObject.Find("BrainFlow")) Destroy(GameObject.Find("BrainFlow"));
                     EditorApplication.isPlaying = false;
                 }
                 else
@@ -241,7 +242,7 @@ namespace BrainFlowToolbox.Editor
             EditorGUILayout.PropertyField(serializedObject.FindProperty("showData"));
             if (sessionProfile.showData)
             {
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("displayData"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("dataCanvas"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("graphBackgroundColor"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("graphBarColor"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("graphLineColor"));

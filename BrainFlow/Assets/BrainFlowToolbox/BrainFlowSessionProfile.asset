@@ -25,18 +25,21 @@ MonoBehaviour:
   otherInfo: 
   deviceDiscoveryTimeout: 0
   createDataDashboard: 1
-  displayData: 1
+  dataCanvas: 0
   graphBackgroundColor: {r: 0, g: 0, b: 0, a: 0.827451}
   graphBarColor: {r: 0.47843134, g: 1, b: 0.85865307, a: 1}
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
   dataDashboard: {fileID: 0}
-  numberOfDataPoints: 679
+  numberOfDataPoints: 431
+  dataXInterval: 7.4666667
   yMaxValue: 12500
   dataContainer: {fileID: 0}
   visualizationType: 0
-  thickness: 0.47142902
-  sessionGameObject: {fileID: 0}
+  thickness: 0.5
+  sessionContainer: {fileID: 0}
+  dataStreamersContainer: {fileID: 0}
+  dataCanvases: {fileID: 0}
   showData: 1
   samplingRate: 250
-  numberOfSeconds: 2
+  numberOfSeconds: 1

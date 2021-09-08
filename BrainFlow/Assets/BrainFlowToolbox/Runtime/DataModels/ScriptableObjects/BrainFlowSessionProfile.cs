@@ -27,7 +27,7 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
 
         [Header("Data Visualization Options")] 
         public bool createDataDashboard;
-        public BrainFlowDataType displayData;
+        public BrainFlowChannelType dataCanvas;
         public Color graphBackgroundColor;
         public Color graphBarColor;
         public Color graphLineColor;
@@ -35,19 +35,22 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         // Created at Runtime
         public GameObject dataDashboard;
         public int numberOfDataPoints;
+        public float dataXInterval;
         public float yMaxValue;
         public RectTransform dataContainer;
         public VisualizationType visualizationType;
         public float thickness;
-        
-        // Created @ Runtime
-        public GameObject sessionGameObject;
+        public GameObject sessionContainer;
+        public GameObject dataStreamersContainer;
+        public GameObject dataCanvases;
+        public Dictionary<BrainFlowChannelType, GameObject> dataCanvasGameObjects = new Dictionary<BrainFlowChannelType, GameObject>();
+        public Dictionary<BrainFlowChannelType, GameObject> dataStreamGameObjects = new Dictionary<BrainFlowChannelType, GameObject>();
         public bool showData;
         public double samplingRate;
         public int numberOfSeconds;
         public BoardShim boardShim;
         public BrainFlowInputParams brainFlowInputParams;
-        public Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> dataManagers;
+        public Dictionary<BrainFlowChannelType, BrainFlowChannelTypeData> channelTypeData = new Dictionary<BrainFlowChannelType, BrainFlowChannelTypeData>();
         public double[,] boardData;
 
     }

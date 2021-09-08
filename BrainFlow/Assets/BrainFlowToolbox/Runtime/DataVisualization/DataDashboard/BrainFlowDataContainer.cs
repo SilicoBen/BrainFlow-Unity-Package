@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using UnityEngine;
 
-namespace BrainFlowToolbox.Runtime.DataVisualization
+namespace BrainFlowToolbox.Runtime.DataVisualization.DataDashboard
 {
     public class BrainFlowDataContainer : MonoBehaviour
     {

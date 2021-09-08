@@ -1,58 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using brainflow;
 using BrainFlowToolbox.Runtime.DataModels.Classes;
 using BrainFlowToolbox.Runtime.DataModels.Enumerators;
 using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
-using BrainFlowToolbox.Runtime.DataStreaming;
-using BrainFlowToolbox.Runtime.DataVisualization;
+using BrainFlowToolbox.Runtime.Managers;
 using UnityEngine;
 
 namespace BrainFlowToolbox.Runtime.Utilities
 {
     public static class BrainFlowUtilities
     {
+        private static BrainFlowSessionProfile sessionProfile;
         private static BoardShim boardShim;
-        public static GameObject dataStreamerContainer;
-        private static Dictionary<BrainFlowDataType, GameObject> dataCanvases;
-        private static Dictionary<BrainFlowDataType, GameObject> dataStreamers;
         private static GameObject activeDataCanvas;
         private static GameObject activeDataStreamer;
         private static GameObject dataDashboard;
-        
-        
-        public static int[] GetChannelIds(BrainFlowDataType dataType, BoardIds board)
-        {
-            try
-            {
-                return dataType switch
-                {
-                    BrainFlowDataType.EEG => BoardShim.get_eeg_channels((int) board),
-                    BrainFlowDataType.EXG => BoardShim.get_exg_channels((int) board),
-                    BrainFlowDataType.EMG => BoardShim.get_emg_channels((int) board),
-                    BrainFlowDataType.ECG => BoardShim.get_ecg_channels((int) board),
-                    BrainFlowDataType.EOG => BoardShim.get_eog_channels((int) board),
-                    BrainFlowDataType.EDA => BoardShim.get_eda_channels((int) board),
-                    BrainFlowDataType.PPG => BoardShim.get_ppg_channels((int) board),
-                    BrainFlowDataType.Accel => BoardShim.get_accel_channels((int) board),
-                    BrainFlowDataType.Analog => BoardShim.get_analog_channels((int) board),
-                    BrainFlowDataType.Gyro => BoardShim.get_gyro_channels((int) board),
-                    BrainFlowDataType.Temperature => BoardShim.get_temperature_channels((int) board),
-                    BrainFlowDataType.Resistance => BoardShim.get_resistance_channels((int) board),
-                    BrainFlowDataType.Other => BoardShim.get_other_channels((int) board),
-                    _ => throw new ArgumentOutOfRangeException(nameof(dataType), dataType, null)
-                };
-            }
-            catch(BrainFlowException e)
-            {
-                //Debug.Log(e);
-                return new int[0];
-            }
-        }
-        public static BoardShim CreateBoardShim(BrainFlowSessionProfile brainFlowSessionProfile)
+        private static BrainFlowChannelType currentCanvas;
+
+        // Session Initialization functions
+        public static void CreateBoardShim(BrainFlowSessionProfile brainFlowSessionProfile)
         {
             // In order to create a new boardShim we need the BoardID and we need a BrainFlowInputParams object
             // First we get the boardID using the select board
+            sessionProfile = brainFlowSessionProfile;
             
             // Next we create the BrainFlowInputParams object based on the board that was chosen.
             brainFlowSessionProfile.brainFlowInputParams = new BrainFlowInputParams();
@@ -269,114 +241,31 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 brainFlowSessionProfile.brainFlowInputParams);
             
             brainFlowSessionProfile.samplingRate = BoardShim.get_sampling_rate((int)brainFlowSessionProfile.board);
-            return brainFlowSessionProfile.boardShim;
         }
-        public static void StartSession(BrainFlowSessionProfile brainFlowSessionProfile)
+        public static bool StartSession(BrainFlowSessionProfile brainFlowSessionProfile)
         {
-            EndSession();
-            
-            if (brainFlowSessionProfile.boardShim == null)
-            {
-                Debug.Log(
-                    "BrainFlow: Cannot Start Session - " +
-                    "No Board Shim Found. Use BrainFlowUtilities.CreateBoardShim() " +
-                    "to create the BoardShim before calling Start Session");
-                return;
-            }
+            if (brainFlowSessionProfile.boardShim == null) CreateBoardShim(brainFlowSessionProfile);
             
             try
             {
                 BoardShim.disable_board_logger();
                 BoardShim.set_log_file(brainFlowSessionProfile.boardDataFileName + "_log.txt");
                 BoardShim.enable_dev_board_logger();
-                brainFlowSessionProfile.boardShim.prepare_session();
-                brainFlowSessionProfile.boardShim.start_stream(
+                brainFlowSessionProfile.boardShim?.prepare_session();
+                brainFlowSessionProfile.boardShim?.start_stream(
                     brainFlowSessionProfile.bufferSize,
                     "file://" + brainFlowSessionProfile.boardDataFileName + " .csv:w");
-                CreateDataTypeManagers(brainFlowSessionProfile);
                 boardShim = brainFlowSessionProfile.boardShim;
-                UpdateDataCanvas(brainFlowSessionProfile);
                 Debug.Log("BrainFlow: Session Started Successfully!");
             }
             catch (BrainFlowException e)
             {
                 Debug.Log(e);
                 Debug.Log("BrainFlow: Unable to Start Session");
-            }
-        }
-
-        
-        public static Dictionary<BrainFlowDataType, BrainFlowDataTypeManager> CreateDataTypeManagers(BrainFlowSessionProfile brainFlowSessionProfile)
-        {
-            brainFlowSessionProfile.dataManagers = new Dictionary<BrainFlowDataType, BrainFlowDataTypeManager>();
-            dataCanvases = new Dictionary<BrainFlowDataType, GameObject>();
-            dataStreamers = new Dictionary<BrainFlowDataType, GameObject>();
-            
-            foreach (BrainFlowDataType i in Enum.GetValues(typeof(BrainFlowDataType)))
-            {
-                var channels = GetChannelIds(i, brainFlowSessionProfile.board);
-                if (channels.Length == 0) continue;
-
-                brainFlowSessionProfile.dataManagers[i] = new BrainFlowDataTypeManager
-                {
-                    dataType = i,
-                    channelIds = channels,
-                    bufferSize = brainFlowSessionProfile.bufferSize,
-                    boardShim = brainFlowSessionProfile.boardShim,
-                    numberOfChannels = channels.Length,
-                    sessionProfile = brainFlowSessionProfile
-                };
-                
-                CreateChannelStreamers(brainFlowSessionProfile.dataManagers[i]);
-                CreateDataCanvas(brainFlowSessionProfile.dataManagers[i]);
-                dataCanvases[i] = brainFlowSessionProfile.dataManagers[i].channelCanvas.gameObject;
-                dataStreamers[i] = brainFlowSessionProfile.dataManagers[i].dataStreamersContainer.gameObject;
+                return false;
             }
             
-            return brainFlowSessionProfile.dataManagers;
-        }
-        public static void CreateChannelStreamers(BrainFlowDataTypeManager dataManager)
-        {
-
-            if (!dataStreamerContainer)
-            {
-                dataStreamerContainer = new GameObject("Data Streamers");
-                dataStreamerContainer.transform.SetParent(dataManager.sessionProfile.sessionGameObject.transform);
-            }
-            
-            
-            if (!dataManager.dataStreamersContainer)
-            {
-                dataManager.dataStreamersContainer =
-                    new GameObject(dataManager.dataType + " Channel Streamers");
-                dataManager.dataStreamersContainer.transform.SetParent(dataStreamerContainer.transform);
-                dataManager.dataStreamersContainer.SetActive(false);
-            }
-            
-            foreach (var i in dataManager.channelIds)
-            {
-                var newDataStreamer =  new GameObject(dataManager.dataType + " CH" + i);
-                var streamComponent = newDataStreamer.AddComponent<BrainFlowChannelDataStream>();
-                streamComponent.Initialize(dataManager, i);
-            }
-        }
-        public static void CreateDataCanvas(BrainFlowDataTypeManager dataManager)
-        {
-            if (!dataManager.channelCanvas)
-            {
-                var newDataCanvas = new GameObject(dataManager.dataType + " Data Canvas");
-                dataManager.channelCanvas = newDataCanvas.AddComponent<BrainFlowChannelCanvas>();
-                dataManager.channelCanvas.Initialize(dataManager);
-                dataManager.channelCanvas.gameObject.SetActive(false);
-            }
-            
-            foreach (var i in dataManager.channelIds)
-            {
-                var newDataVisualizer =  new GameObject(dataManager.dataType + " CH" + i + " Visualizer");
-                var visualizerComponent = newDataVisualizer.AddComponent<BrainFlowChannelVisualizer>();
-                visualizerComponent.Initialize(dataManager, i);
-                dataManager.channelCanvas.AddDataStreamVisualizer(newDataVisualizer);
-            }
+            return true;
         }
         public static void EndSession()
         {
@@ -404,22 +293,134 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 Debug.Log("BrainFlow: Could Not Release Session");
             }
         }
-
-        public static void UpdateDataCanvas(BrainFlowSessionProfile sessionProfile)
+        
+        // Methods for organizing data streams
+        public static void CreateDataContainers(BrainFlowSessionProfile brainFlowSessionProfile)
         {
-            if(activeDataCanvas != null) activeDataCanvas.SetActive(false);
-            if(activeDataStreamer != null) activeDataStreamer.SetActive(false);
-            if(!dataCanvases.ContainsKey(sessionProfile.displayData))
+            brainFlowSessionProfile.channelTypeData = new Dictionary<BrainFlowChannelType, BrainFlowChannelTypeData>();
+
+            if (!brainFlowSessionProfile.dataStreamersContainer)
             {
-                Debug.Log("Brain Flow: Session board does not have " + sessionProfile.displayData);
-                activeDataCanvas = null;
+                brainFlowSessionProfile.dataStreamersContainer = new GameObject("Data Streams");
+            }
+            
+            brainFlowSessionProfile.dataStreamersContainer.transform.SetParent(brainFlowSessionProfile.sessionContainer.transform);
+            
+            foreach (BrainFlowChannelType i in Enum.GetValues(typeof(BrainFlowChannelType)))
+            {
+                // Here we create a data data for each channel type
+                var channels = GetChannelIds(i, brainFlowSessionProfile.board);
+                if (channels.Length == 0) continue;
+                
+                brainFlowSessionProfile.channelTypeData[i] = new BrainFlowChannelTypeData
+                {
+                    channelType = i,
+                    channelIds = channels,
+                    sessionProfile = brainFlowSessionProfile,
+                };
+                
+                // once the type data is created we create a separate data for each channel.
+                CreateChannelDataStreamers(brainFlowSessionProfile.channelTypeData[i]);
+            }
+        }
+        public static void CreateChannelDataStreamers(BrainFlowChannelTypeData channelTypeData)
+        {
+            
+            sessionProfile.dataStreamGameObjects[channelTypeData.channelType] = new GameObject(channelTypeData.channelType + " Data Streams");
+
+            sessionProfile.dataStreamGameObjects[channelTypeData.channelType].transform
+                .SetParent(sessionProfile.dataStreamersContainer.transform);
+
+            channelTypeData.channelDataStreamers = sessionProfile.dataStreamGameObjects[channelTypeData.channelType];
+            channelTypeData.channelDataStreamers.SetActive(false);
+            
+            var index = 0;
+            
+            foreach (var c in channelTypeData.channelIds)
+            {
+                var dataStreamer = new GameObject("Channel " + c + " Data Streamer");
+                
+                channelTypeData.ChannelData[c] = new BrainFlowChannelData()
+                {
+                    sessionProfile = channelTypeData.sessionProfile,
+                    channelType = channelTypeData.channelType,
+                    channelTypeData = channelTypeData,
+                    channelBoardID = c,
+                    channelTypeIndex = index,
+                    dataStreamer = dataStreamer
+                };
+                
+                channelTypeData.ChannelData[c].dataStreamer.AddComponent<BrainFlowChannelDataStream>().Initialize(channelTypeData.ChannelData[c]);
+                channelTypeData.ChannelData[c].dataStreamer.transform.SetParent(
+                    sessionProfile.dataStreamGameObjects[channelTypeData.channelType].transform);
+                index++;
+            }
+            
+            
+        }
+        
+        // Methods for creating Data Visualization
+        public static void CreateDataCanvases()
+        {
+            sessionProfile.dataCanvases = new GameObject("Data Canvases");
+            sessionProfile.dataCanvases.transform.SetParent(sessionProfile.sessionContainer.transform);
+            
+            foreach (var channelData in sessionProfile.channelTypeData.Select(channelTypeData => channelTypeData.Value))
+            {
+                channelData.dataCanvas = new GameObject(channelData.channelType + " Data Canvas");
+                channelData.dataCanvas.transform.SetParent(channelData.sessionProfile.dataCanvases.transform);
+                channelData.sessionProfile.dataCanvasGameObjects[channelData.channelType] = channelData.dataCanvas;
+                channelData.dataCanvas.AddComponent<BrainFlowChannelTypeDataCanvas>().Initialize(channelData);
+                channelData.dataCanvas.SetActive(false);
+            }
+        }
+        
+        // Runtime Update methods
+        public static void UpdateDataCanvas()
+        {
+            if(!sessionProfile.dataCanvasGameObjects.ContainsKey(sessionProfile.dataCanvas))
+            {
+                Debug.Log("Brain Flow: Session board does not have " + sessionProfile.dataCanvas);
+                sessionProfile.dataCanvas = currentCanvas;
                 return;
             }
-
-            activeDataCanvas = dataCanvases[sessionProfile.displayData];
-            activeDataStreamer = dataStreamers[sessionProfile.displayData];
+            
+            if(activeDataCanvas != null) activeDataCanvas.SetActive(false);
+            if(activeDataStreamer != null) activeDataStreamer.SetActive(false);
+            activeDataCanvas = sessionProfile.dataCanvasGameObjects[sessionProfile.dataCanvas];
+            activeDataStreamer = sessionProfile.dataStreamGameObjects[sessionProfile.dataCanvas];
             activeDataCanvas.SetActive(true);
             activeDataStreamer.SetActive(true);
+        }
+        
+        // Helper methods
+        public static int[] GetChannelIds(BrainFlowChannelType channelType, BoardIds board)
+        {
+            try
+            {
+                return channelType switch
+                {
+                    BrainFlowChannelType.EEG => BoardShim.get_eeg_channels((int) board),
+                    BrainFlowChannelType.EXG => BoardShim.get_exg_channels((int) board),
+                    BrainFlowChannelType.EMG => BoardShim.get_emg_channels((int) board),
+                    BrainFlowChannelType.ECG => BoardShim.get_ecg_channels((int) board),
+                    BrainFlowChannelType.EOG => BoardShim.get_eog_channels((int) board),
+                    BrainFlowChannelType.EDA => BoardShim.get_eda_channels((int) board),
+                    BrainFlowChannelType.PPG => BoardShim.get_ppg_channels((int) board),
+                    BrainFlowChannelType.Accel => BoardShim.get_accel_channels((int) board),
+                    BrainFlowChannelType.Analog => BoardShim.get_analog_channels((int) board),
+                    BrainFlowChannelType.Gyro => BoardShim.get_gyro_channels((int) board),
+                    BrainFlowChannelType.Temperature => BoardShim.get_temperature_channels((int) board),
+                    BrainFlowChannelType.Resistance => BoardShim.get_resistance_channels((int) board),
+                    BrainFlowChannelType.Other => BoardShim.get_other_channels((int) board),
+                    _ => throw new ArgumentOutOfRangeException(nameof(channelType), channelType, null)
+                };
+            }
+            catch(BrainFlowException e)
+            {
+                //Debug.Log(e);
+                return new int[0];
+            }
         }
     }
 }

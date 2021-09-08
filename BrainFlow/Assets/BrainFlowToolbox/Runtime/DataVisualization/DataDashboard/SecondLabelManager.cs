@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BrainFlowToolbox.Runtime.DataVisualization
+namespace BrainFlowToolbox.Runtime.DataVisualization.DataDashboard
 {
     public class SecondLabelManager : MonoBehaviour
     {

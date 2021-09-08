@@ -16,7 +16,7 @@ namespace BrainFlowToolbox.Runtime.Managers
             EditorApplication.isPlaying = true;
 #endif
             brainFlowSessionProfile = sessionProfile;
-            brainFlowSessionProfile.sessionGameObject = gameObject;
+            brainFlowSessionProfile.sessionContainer = gameObject;
         }
 
         void Start()
