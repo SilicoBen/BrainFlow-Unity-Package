@@ -27,19 +27,19 @@ MonoBehaviour:
   createDataDashboard: 1
   dataCanvas: 0
   graphBackgroundColor: {r: 0, g: 0, b: 0, a: 0.827451}
-  graphBarColor: {r: 0.47843134, g: 1, b: 0.85865307, a: 1}
+  graphBarColor: {r: 0.5431267, g: 1, b: 0.79898995, a: 1}
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
   dataDashboard: {fileID: 0}
-  numberOfDataPoints: 431
+  numberOfDataPoints: 698
   dataXInterval: 7.4666667
   yMaxValue: 12500
   dataContainer: {fileID: 0}
   visualizationType: 0
-  thickness: 0.5
+  thickness: 0.21646555
   sessionContainer: {fileID: 0}
   dataStreamersContainer: {fileID: 0}
   dataCanvases: {fileID: 0}
   showData: 1
   samplingRate: 250
-  numberOfSeconds: 1
+  numberOfSeconds: 2
