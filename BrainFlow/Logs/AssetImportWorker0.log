@@ -1,29 +1,29 @@
 Using pre-set license
-Built from '2020.3/staging' branch; Version is '2020.3.17f1 (a4537701e4ab) revision 10769271'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Education; OS build 18363.1734; Version 1909; 64bit' Language: 'en' Physical Memory: 32686 MB
+Built from '2020.3/staging' branch; Version is '2020.3.20f1 (41c4e627c95f) revision 4310246'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Education; OS build 18363.1916; Version 1909; 64bit' Language: 'en' Physical Memory: 32686 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/GitHub/BrainFlow-Unity-Package/BrainFlow
+D:/GitHub/BrainFlow-Unity-Package/BrainFlow
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52099
-Successfully changed project path to: C:/GitHub/BrainFlow-Unity-Package/BrainFlow
-C:/GitHub/BrainFlow-Unity-Package/BrainFlow
+52443
+Successfully changed project path to: D:/GitHub/BrainFlow-Unity-Package/BrainFlow
+D:/GitHub/BrainFlow-Unity-Package/BrainFlow
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 44.62 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 37.89 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2020.3.17f1 (a4537701e4ab)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/GitHub/BrainFlow-Unity-Package/BrainFlow/Assets
+Initialize engine version: 2020.3.20f1 (41c4e627c95f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/GitHub/BrainFlow-Unity-Package/BrainFlow/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -32,92 +32,95 @@ Direct3D:
     VRAM:     4042 MB
     Driver:   26.20.12001.12000
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56452
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56624
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002768 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002793 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 36.69 ms, found 2 plugins.
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 31.46 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.671 seconds
+- Completed reload, in  2.830 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2672ms)
-		BeginReloadAssembly (87ms)
+	ReloadAssembly (2830ms)
+		BeginReloadAssembly (78ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (556ms)
-			LoadAssemblies (84ms)
+		EndReloadAssembly (542ms)
+			LoadAssemblies (75ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (206ms)
+			SetupTypeCache (194ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (208ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (194ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (37ms)
-				BeforeProcessingInitializeOnLoad (20ms)
-				ProcessInitializeOnLoadAttributes (109ms)
-				ProcessInitializeOnLoadMethodAttributes (36ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (32ms)
+				BeforeProcessingInitializeOnLoad (19ms)
+				ProcessInitializeOnLoadAttributes (103ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005327 seconds.
+Registered in 0.002609 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.606 seconds
+- Completed reload, in  1.283 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1607ms)
-		BeginReloadAssembly (257ms)
+	ReloadAssembly (1284ms)
+		BeginReloadAssembly (193ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (9ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (29ms)
-		EndReloadAssembly (1249ms)
-			LoadAssemblies (121ms)
+			CreateAndSetChildDomain (22ms)
+		EndReloadAssembly (1001ms)
+			LoadAssemblies (122ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (401ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (71ms)
-			SetupLoadedEditorAssemblies (531ms)
+			SetupTypeCache (312ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (407ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
+				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (134ms)
-				ProcessInitializeOnLoadAttributes (372ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (120ms)
+				ProcessInitializeOnLoadAttributes (265ms)
 				ProcessInitializeOnLoadMethodAttributes (5ms)
 				AfterProcessingInitializeOnLoad (8ms)
-				EditorAssembliesLoaded (1ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
-Refreshing native plugins compatible for Editor in 0.28 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1429 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 67.9 MB.
-System memory in use after: 67.9 MB.
+Unloading 1431 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 67.7 MB.
+System memory in use after: 67.8 MB.
 
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1863.
-Total: 3.341900 ms (FindLiveObjects: 0.222400 ms CreateObjectMapping: 0.075000 ms MarkObjects: 2.942500 ms  DeleteObjects: 0.101000 ms)
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1867.
+Total: 4.524000 ms (FindLiveObjects: 0.175600 ms CreateObjectMapping: 0.050800 ms MarkObjects: 4.150400 ms  DeleteObjects: 0.145900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   requireTextureImportCompression: false -> true
@@ -132,9 +135,522 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/BrainFlowToolbox/Resources/Prefabs/DataDashboard.prefab
-  artifactKey: Guid(a152887ff5012ef46bbd4347e024aec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/BrainFlowToolbox/Resources/Prefabs/DataDashboard.prefab using Guid(a152887ff5012ef46bbd4347e024aec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4de73c8b6a9aad0a4d2aee8af4062f92') in 0.162825 seconds 
-  Import took 0.165627 seconds .
+  path: Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset
+  artifactKey: Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset using Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cade1ae83fbae31115265273d7b9780') in 0.045206 seconds 
+  Import took 0.047567 seconds .
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 18.418665 seconds.
+  path: Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset
+  artifactKey: Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset using Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '094e5ce04b05db0f57069daff7cb57f6') in 0.005842 seconds 
+  Import took 0.008851 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002752 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.152 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1153ms)
+		BeginReloadAssembly (129ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (41ms)
+		EndReloadAssembly (941ms)
+			LoadAssemblies (94ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (315ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (368ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (118ms)
+				ProcessInitializeOnLoadAttributes (229ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1412 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 66.2 MB.
+System memory in use after: 66.3 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1869.
+Total: 2.858000 ms (FindLiveObjects: 0.136400 ms CreateObjectMapping: 0.045500 ms MarkObjects: 2.656000 ms  DeleteObjects: 0.018900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 12.289065 seconds.
+  path: Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset
+  artifactKey: Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset using Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '284741d7a7cbf49fd347ec0212145987') in 0.016862 seconds 
+  Import took 0.019855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 63.001761 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowManager.cs
+  artifactKey: Guid(411c78fce95d4d84a1fbacad06416a4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowManager.cs using Guid(411c78fce95d4d84a1fbacad06416a4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd818828cd011090ad728f442fe677dd5') in 0.010280 seconds 
+  Import took 0.014281 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006431 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.802 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2802ms)
+		BeginReloadAssembly (723ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (71ms)
+		EndReloadAssembly (1853ms)
+			LoadAssemblies (674ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (781ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (88ms)
+			SetupLoadedEditorAssemblies (608ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (178ms)
+				ProcessInitializeOnLoadAttributes (389ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1412 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 66.3 MB.
+System memory in use after: 66.4 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1871.
+Total: 4.231300 ms (FindLiveObjects: 0.341900 ms CreateObjectMapping: 0.125700 ms MarkObjects: 3.716300 ms  DeleteObjects: 0.045500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003073 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.272 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1272ms)
+		BeginReloadAssembly (132ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (45ms)
+		EndReloadAssembly (1053ms)
+			LoadAssemblies (101ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (340ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (400ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (111ms)
+				ProcessInitializeOnLoadAttributes (266ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1412 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 66.3 MB.
+System memory in use after: 66.4 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1873.
+Total: 3.353800 ms (FindLiveObjects: 0.248700 ms CreateObjectMapping: 0.080300 ms MarkObjects: 2.996800 ms  DeleteObjects: 0.026600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009764 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.567 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1567ms)
+		BeginReloadAssembly (190ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (61ms)
+		EndReloadAssembly (1269ms)
+			LoadAssemblies (186ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (458ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (432ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (134ms)
+				ProcessInitializeOnLoadAttributes (266ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1412 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 66.3 MB.
+System memory in use after: 66.4 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1875.
+Total: 4.551800 ms (FindLiveObjects: 0.143000 ms CreateObjectMapping: 0.038900 ms MarkObjects: 4.333200 ms  DeleteObjects: 0.035500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 447.703252 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowChannelTypeDataCanvas.cs
+  artifactKey: Guid(fb631afb4d124e4d96507d7b227d5bb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowChannelTypeDataCanvas.cs using Guid(fb631afb4d124e4d96507d7b227d5bb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62d14120baaa03eac35974bdd2bcd3ed') in 0.009875 seconds 
+  Import took 0.013165 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002802 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/DashBoardButtonManager.cs
+  artifactKey: Guid(06fe12d4bfbd8cb44b9de77a94e5cce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/DashBoardButtonManager.cs using Guid(06fe12d4bfbd8cb44b9de77a94e5cce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a995668aef33dd504ea075a2e61ed632') in 0.007211 seconds 
+  Import took 0.009834 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002379 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/SecondLabelManager.cs
+  artifactKey: Guid(daa0dc1e9ee18524891668e5c2302b29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/SecondLabelManager.cs using Guid(daa0dc1e9ee18524891668e5c2302b29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46f7416d6761db114fef41f151e9764b') in 0.007629 seconds 
+  Import took 0.011482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.111053 seconds.
+  path: Assets/brainflow.dll
+  artifactKey: Guid(450c9f1cb3161254bb5d9c789d1184fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/brainflow.dll using Guid(450c9f1cb3161254bb5d9c789d1184fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eac3aacf7ce65d81053a1effa3a17b7b') in 0.013411 seconds 
+  Import took 0.015853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014008 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowChannelDataStream.cs
+  artifactKey: Guid(6cc0a848b22346d897dbda3e4078ab23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowChannelDataStream.cs using Guid(6cc0a848b22346d897dbda3e4078ab23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd70c70033bcb45296d9afa353e4629da') in 0.007040 seconds 
+  Import took 0.009637 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006302 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowDataPointManager.cs
+  artifactKey: Guid(00bef50caee94609930b101e95805435) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowDataPointManager.cs using Guid(00bef50caee94609930b101e95805435) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe5fe53520df3b6723d2d930890fb752') in 0.005652 seconds 
+  Import took 0.007728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007235 seconds.
+  path: Assets/BrainFlowToolbox/Resources/Icons/LineGraph.png
+  artifactKey: Guid(58e0a6be2bfda084ca46e3bcefe11486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Resources/Icons/LineGraph.png using Guid(58e0a6be2bfda084ca46e3bcefe11486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb82d9d022ceff12fda9cb80de248e80') in 0.058817 seconds 
+  Import took 0.061517 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012048 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowSessionManagercs.cs
+  artifactKey: Guid(ac8191a5584642f3ae0459f76f0e3956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowSessionManagercs.cs using Guid(ac8191a5584642f3ae0459f76f0e3956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '444ed951dbe515e7f22fe1d114c79a8b') in 0.005567 seconds 
+  Import took 0.007746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017368 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataModels/Classes/BrainFlowChannelTypeDatacs.cs
+  artifactKey: Guid(5c9e052c2be346afbff80ad1e03be442) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataModels/Classes/BrainFlowChannelTypeDatacs.cs using Guid(5c9e052c2be346afbff80ad1e03be442) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1198f1cd099f51febc48d56d039b6a1') in 0.005715 seconds 
+  Import took 0.007868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012848 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataModels/Enumerators/BrainFlowChannelType.cs
+  artifactKey: Guid(052604b29f37430aab877203b861bbd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataModels/Enumerators/BrainFlowChannelType.cs using Guid(052604b29f37430aab877203b861bbd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4ee9bed741fedd77bc114f5b4aa5506') in 0.005519 seconds 
+  Import took 0.007933 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023084 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/Utilities/BrainFlowUtilities.cs
+  artifactKey: Guid(a8de3dcfd5964d4bb847be14d97d750e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/Utilities/BrainFlowUtilities.cs using Guid(a8de3dcfd5964d4bb847be14d97d750e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72af208cfa54387116273b142a89eb1a') in 0.005408 seconds 
+  Import took 0.007689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021395 seconds.
+  path: Assets/BrainFlowToolbox/Resources/Icons/BrainFlow_icon.png
+  artifactKey: Guid(13475b6bba118ca479bc3a18e8393171) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Resources/Icons/BrainFlow_icon.png using Guid(13475b6bba118ca479bc3a18e8393171) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f4b2f891006b179cdfd9b70cce6f9f9') in 0.012397 seconds 
+  Import took 0.016487 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007040 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowChannelDataCanvas.cs
+  artifactKey: Guid(8fe939d1f37b2094395cd0236a674079) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/Managers/BrainFlowChannelDataCanvas.cs using Guid(8fe939d1f37b2094395cd0236a674079) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '946c8f0ed3340855df16f215068183f7') in 0.005430 seconds 
+  Import took 0.007624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015447 seconds.
+  path: Assets/BrainFlowToolbox/Resources/Prefabs/ChannelDataStreamGraph.prefab
+  artifactKey: Guid(80c06e23172793540948a010357f9370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Resources/Prefabs/ChannelDataStreamGraph.prefab using Guid(80c06e23172793540948a010357f9370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc0e895211a2eca66c2360700372217a') in 0.094747 seconds 
+  Import took 0.097197 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006119 seconds.
+  path: Assets/BrainFlowToolbox/Resources/Icons/LineGraphGrey.png
+  artifactKey: Guid(41724212e24b122438373018fa5c3d42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Resources/Icons/LineGraphGrey.png using Guid(41724212e24b122438373018fa5c3d42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4554e72c0e6186836ff6f05a52600077') in 0.011329 seconds 
+  Import took 0.014046 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010212 seconds.
+  path: Assets/BrainFlowToolbox/BrainFlowSessionProfile.asset
+  artifactKey: Guid(7386b6a3896a14f4d9e26f39b4556a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/BrainFlowSessionProfile.asset using Guid(7386b6a3896a14f4d9e26f39b4556a27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f8d33ea9107f6ffd0b7cedf0e7f1f3') in 0.016545 seconds 
+  Import took 0.020795 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008973 seconds.
+  path: Assets/BrainFlowToolbox/Resources/Icons/BarGraph.png
+  artifactKey: Guid(d59787a92580dcc44936b41c8bddde7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Resources/Icons/BarGraph.png using Guid(d59787a92580dcc44936b41c8bddde7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e30202ea58f29bdccd8f9cd868e114c2') in 0.015351 seconds 
+  Import took 0.018165 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007952 seconds.
+  path: Assets/BrainFlowToolbox/Resources/Icons/BarGraphGrey.png
+  artifactKey: Guid(d45d19040ee128649a43757d9f244f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Resources/Icons/BarGraphGrey.png using Guid(d45d19040ee128649a43757d9f244f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27de4471eb46f787e770b6fb97e1b4f4') in 0.009584 seconds 
+  Import took 0.011802 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013537 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataModels/Classes/BrainFlowChannelData.cs
+  artifactKey: Guid(f4febb3fd7e24ceca1bfd188c37df797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataModels/Classes/BrainFlowChannelData.cs using Guid(f4febb3fd7e24ceca1bfd188c37df797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87007a994a63ca714dc7d07df0daec2b') in 0.005360 seconds 
+  Import took 0.007473 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005114 seconds.
+  path: Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset
+  artifactKey: Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/BrainFlowSessionProfile 1.asset using Guid(680e6c0f77e95ab43abd525ce22688cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '139764422fde064d3e647dad9034a604') in 0.003104 seconds 
+  Import took 0.005748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005166 seconds.
+  path: Assets/BrainFlowToolbox/Editor/BrainFlowSessionProfileInspector.cs
+  artifactKey: Guid(153b08cd4c8344759ca7668d33bc3ee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Editor/BrainFlowSessionProfileInspector.cs using Guid(153b08cd4c8344759ca7668d33bc3ee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2fcad5cd1f10a48811f7f6f5ac6f259') in 0.004810 seconds 
+  Import took 0.007253 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005135 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataModels/ScriptableObjects/BrainFlowSessionProfile.cs
+  artifactKey: Guid(1e903a6e00cc422fab7c7f6e02b2f370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataModels/ScriptableObjects/BrainFlowSessionProfile.cs using Guid(1e903a6e00cc422fab7c7f6e02b2f370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ddc848641ac1116097fd8c7ae04cc9f') in 0.001494 seconds 
+  Import took 0.003788 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.025723 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/BrainFlowDataDashboard.cs
+  artifactKey: Guid(f90a19b909bf1c0439dc30270ff11329) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/BrainFlowDataDashboard.cs using Guid(f90a19b909bf1c0439dc30270ff11329) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e8dc1339ea0ae1af838b23423d7508d') in 0.005234 seconds 
+  Import took 0.007410 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005546 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/BrainFlowDataContainer.cs
+  artifactKey: Guid(3e188a57ac98d03439374d855a347b0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard/BrainFlowDataContainer.cs using Guid(3e188a57ac98d03439374d855a347b0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab9150469a65aee9b68d08dfa09eec23') in 0.006442 seconds 
+  Import took 0.010109 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018171 seconds.
+  path: Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard
+  artifactKey: Guid(4593ca09a5904a2d95b613a39bbbe48a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BrainFlowToolbox/Runtime/DataVisualization/DataDashboard using Guid(4593ca09a5904a2d95b613a39bbbe48a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7909b4a1ee30ed60793a857a022cd50d') in 0.005647 seconds 
+  Import took 0.008262 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002363 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.216 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1216ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1027ms)
+			LoadAssemblies (91ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (303ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (64ms)
+			SetupLoadedEditorAssemblies (428ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (147ms)
+				ProcessInitializeOnLoadAttributes (253ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1412 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 66.4 MB.
+System memory in use after: 66.5 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1881.
+Total: 3.291700 ms (FindLiveObjects: 0.300500 ms CreateObjectMapping: 0.075300 ms MarkObjects: 2.874900 ms  DeleteObjects: 0.021300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  requireTextureImportCompression: false -> true
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
