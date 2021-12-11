@@ -153,8 +153,6 @@ namespace BrainFlowToolbox.Editor
                         new GUIContent("External Switch Input Mio USB", "Optional"));
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceDiscoveryTimeout"));
                     break;
-                case BoardIds.FASCIA_BOARD:
-                    break;
                 case BoardIds.NOTION_1_BOARD:
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("deviceSerialNumber"), 
                         new GUIContent("Serial Number (.serial_number)", "Optional"));
@@ -230,6 +228,10 @@ namespace BrainFlowToolbox.Editor
                 case BoardIds.ENOPHONE_BOARD:
                     EditorGUILayout.PropertyField(serializedObject.FindProperty("macAddress"), 
                         new GUIContent("MAC Address (.mac_address)"));
+                    break;
+                case BoardIds.MUSE_2_BOARD:
+                    break;
+                case BoardIds.MUSE_S_BOARD:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

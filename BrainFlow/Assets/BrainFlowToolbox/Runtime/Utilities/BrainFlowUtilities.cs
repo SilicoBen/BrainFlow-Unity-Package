@@ -147,8 +147,6 @@ namespace BrainFlowToolbox.Runtime.Utilities
                     brainFlowSessionProfile.brainFlowInputParams.timeout = brainFlowSessionProfile.deviceDiscoveryTimeout == 0 ? 
                         15 : brainFlowSessionProfile.deviceDiscoveryTimeout;
                     break;
-                case BoardIds.FASCIA_BOARD:
-                    break;
                 case BoardIds.NOTION_1_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.serial_number =
                         brainFlowSessionProfile.deviceSerialNumber == ""
@@ -182,10 +180,11 @@ namespace BrainFlowToolbox.Runtime.Utilities
                 case BoardIds.MUSE_S_BLED_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.serial_port =
                         "COM" + brainFlowSessionProfile.serialPortNumber;
-                    brainFlowSessionProfile.brainFlowInputParams.serial_number =
-                        brainFlowSessionProfile.deviceSerialNumber == ""
-                            ? brainFlowSessionProfile.brainFlowInputParams.serial_number
-                            : brainFlowSessionProfile.deviceSerialNumber;
+                    
+                    // brainFlowSessionProfile.brainFlowInputParams.serial_number =
+                    //     brainFlowSessionProfile.deviceSerialNumber == ""
+                    //         ? brainFlowSessionProfile.brainFlowInputParams.serial_number
+                    //         : brainFlowSessionProfile.deviceSerialNumber;
                     break;
                 case BoardIds.MUSE_2_BLED_BOARD:
                     brainFlowSessionProfile.brainFlowInputParams.serial_port =
@@ -249,7 +248,7 @@ namespace BrainFlowToolbox.Runtime.Utilities
             try
             {
                 BoardShim.disable_board_logger();
-                BoardShim.set_log_file(brainFlowSessionProfile.boardDataFileName + "_log.txt");
+                //BoardShim.set_log_file(brainFlowSessionProfile.boardDataFileName + "_log.txt");
                 BoardShim.enable_dev_board_logger();
                 brainFlowSessionProfile.boardShim?.prepare_session();
                 brainFlowSessionProfile.boardShim?.start_stream(
