@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BrainFlowToolbox.Runtime.DataModels.Classes;
+using BrainFlowToolbox.Runtime.DataModels.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ namespace BrainFlowToolbox.Runtime.Managers
         private Slider yRangeSlider;
         private RectTransform sliderRect;
         private List<GameObject> dataPointGameObjects = new List<GameObject>();
+        private BrainFlowSessionProfile brainFlowSessionProfile;
 
         public void Initialize(BrainFlowChannelData data)
         {
@@ -29,6 +31,7 @@ namespace BrainFlowToolbox.Runtime.Managers
             canvasImage = gameObject.AddComponent<Image>();
             canvasRect = gameObject.GetComponent<RectTransform>();
             gameObject.AddComponent<GraphicRaycaster>();
+            brainFlowSessionProfile = channelData.sessionProfile;
             
             // setup size based on the size of the data canvas for the channel type data
             dataCanvasRect = data.channelTypeDataCanvas.dataCanvasRect;
@@ -74,7 +77,7 @@ namespace BrainFlowToolbox.Runtime.Managers
             canvasRect.sizeDelta = new Vector2(canvasSize.x, canvasSize.y * 0.95f);
             sliderRect.sizeDelta = new Vector2(canvasSize.y, 20);
             canvasRect.anchoredPosition = new Vector2(0, canvasSize.y * (channelData.channelTypeData.channelIds.Length-channelData.channelTypeIndex-1) + dataCanvasSize.x*0.05f);
-            channelData.yAxisScaler = yRangeSlider.value*0.1f;
+            channelData.yAxisScaler = yRangeSlider.value*brainFlowSessionProfile.dataScaler;
             
             channelData.xInterval = canvasSize.x / channelData.channelData.Count;
             CreateGraphObjects();

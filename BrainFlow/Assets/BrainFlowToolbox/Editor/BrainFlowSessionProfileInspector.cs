@@ -244,6 +244,7 @@ namespace BrainFlowToolbox.Editor
             EditorGUILayout.PropertyField(serializedObject.FindProperty("showData"));
             if (sessionProfile.showData)
             {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("dataScaler"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("dataCanvas"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("graphBackgroundColor"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("graphBarColor"));

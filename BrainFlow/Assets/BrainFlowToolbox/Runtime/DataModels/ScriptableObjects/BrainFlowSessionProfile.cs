@@ -28,10 +28,10 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         [Header("Data Visualization Options")] 
         public bool createDataDashboard;
         public BrainFlowChannelType dataCanvas;
-        public Color graphBackgroundColor;
-        public Color graphBarColor;
-        public Color graphLineColor;
-        public Color graphPointColor;
+        public Color graphBackgroundColor = Color.black;
+        public Color graphBarColor = Color.cyan;
+        public Color graphLineColor = Color.green;
+        public Color graphPointColor = Color.blue;
         // Created at Runtime
         public GameObject dataDashboard;
         public int numberOfDataPoints;
@@ -52,6 +52,9 @@ namespace BrainFlowToolbox.Runtime.DataModels.ScriptableObjects
         public BrainFlowInputParams brainFlowInputParams;
         public Dictionary<BrainFlowChannelType, BrainFlowChannelTypeData> channelTypeData = new Dictionary<BrainFlowChannelType, BrainFlowChannelTypeData>();
         public double[,] boardData;
+
+        [Range(0,10)]
+        public float dataScaler;
 
     }
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e903a6e00cc422fab7c7f6e02b2f370, type: 3}
   m_Name: ANT
   m_EditorClassIdentifier: 
-  board: 0
-  sessionName: 
+  board: 25
+  sessionName: ANT
   boardDataFileName: 
   bufferSize: 450000
   serialPortNumber: 0
@@ -26,8 +26,8 @@ MonoBehaviour:
   deviceDiscoveryTimeout: 0
   createDataDashboard: 0
   dataCanvas: 0
-  graphBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  graphBarColor: {r: 0, g: 0, b: 0, a: 0}
+  graphBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  graphBarColor: {r: 0.35686275, g: 0.6784314, b: 0.8627451, a: 1}
   graphLineColor: {r: 0, g: 0, b: 0, a: 0}
   graphPointColor: {r: 0, g: 0, b: 0, a: 0}
   dataDashboard: {fileID: 0}
@@ -40,6 +40,6 @@ MonoBehaviour:
   sessionContainer: {fileID: 0}
   dataStreamersContainer: {fileID: 0}
   dataCanvases: {fileID: 0}
-  showData: 0
+  showData: 1
   samplingRate: 0
   numberOfSeconds: 0
